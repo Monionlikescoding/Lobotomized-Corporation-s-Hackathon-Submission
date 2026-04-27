@@ -1,4 +1,10 @@
 :root {
 }
 
+#HealthBar > #unity-progress-bar > .unity-progress-bar__background {
+    background-image: url("project://database/Assets/PNG%20Assets/Health%20Bar.png?fileID=-5576685416563272651&guid=45ede307dc1c39a4e9e65e8ddd17a862&type=3#Health Bar_0");
+}
 
+#HealthBar > #unity-progress-bar > .unity-progress-bar__background {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
