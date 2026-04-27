@@ -22,7 +22,7 @@ public class Abnobuttonscripts : MonoBehaviour
             myButton.clicked += OnButtonClick;
         }
         abnoInfo = GameObject.Find("AbnoInfo");
-        scr=GameObject.Find("AbnoInfo").GetComponent<Info>();
+        scr=abnoInfo.GetComponent<Info>();
         abnoInfo.SetActive(false);
     }
 

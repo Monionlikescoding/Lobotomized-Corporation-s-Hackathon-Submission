@@ -46,8 +46,17 @@ public class Move : MonoBehaviour
     }
 
 	private void Update() {
-        transform.Find("HealthBar").localScale=transform.localScale;
-        transform.Find("MindBar").localScale=transform.localScale;
+        //transform.Find("HealthBar").localScale=transform.localScale;
+        //transform.Find("MindBar").localScale=transform.localScale;
+        if(transform.localScale.x==-1){
+            transform.Find("HealthBar").position=new Vector3(-0.5f,0,0)+transform.position;
+            transform.Find("MindBar").position=new Vector3(-0.9f,0,0)+transform.position;
+        }
+        else{
+            transform.Find("HealthBar").position=new Vector3(0.5f,0,0)+transform.position;
+            transform.Find("MindBar").position=new Vector3(0.9f,0,0)+transform.position;
+        }
+        
 	}
 	// Fixed update is constant time, (this is needed for applying forces & velocity management as many devices run on different framerates)
 	void FixedUpdate()
