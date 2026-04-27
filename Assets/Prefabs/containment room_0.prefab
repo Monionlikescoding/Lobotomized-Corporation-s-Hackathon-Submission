@@ -250,6 +250,7 @@ MonoBehaviour:
   angerCount: 0
   threatLevel: 0
   chanceToGetGift: 0.05
+  chanceToGetEnk: 0.7
   workTime: 1
   amountOfWorks: 10
   egoGiftID: 0
@@ -764,6 +765,7 @@ MonoBehaviour:
   angerCount: 0
   threatLevel: 0
   chanceToGetGift: 0.05
+  chanceToGetEnk: 0.7
   workTime: 1
   amountOfWorks: 10
   egoGiftID: 0
@@ -905,6 +907,75 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!1 &9071238862500925723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8492983454525535067}
+  - component: {fileID: 2584149500703206894}
+  - component: {fileID: 1707068099132787106}
+  m_Layer: 0
+  m_Name: Abno button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8492983454525535067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071238862500925723}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.021120071, y: 2.50403, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4015822919459941811}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2584149500703206894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071238862500925723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 4cc2108110055e2418555d9f94ab4839, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 3337c4cc6a1a37d41a187b883ed94851, type: 3}
+  m_SortingOrder: 1
+  m_Position: 0
+  m_WorldSpaceSizeMode: 0
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &1707068099132787106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071238862500925723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96e21c8d5358454cbbc3c9255ec628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Abnobuttonscripts
+  inf: {fileID: 0}
 --- !u!1 &9076775991964064590
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,6 +1013,7 @@ Transform:
   - {fileID: 8713034496554667263}
   - {fileID: 1529957801444352325}
   - {fileID: 8267187357965338575}
+  - {fileID: 8492983454525535067}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7423880765792800316
@@ -1011,6 +1083,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4015822919459941811}
     m_Modifications:
+    - target: {fileID: 1998866418110060558, guid: 7216459cafade4cd49d57989e4c37ee4, type: 3}
+      propertyPath: corridorRoomId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4215789357897099082, guid: 7216459cafade4cd49d57989e4c37ee4, type: 3}
       propertyPath: m_Name
       value: Work Door
@@ -1090,14 +1166,14 @@ MonoBehaviour:
     m_UseReference: 0
     m_Action:
       m_Name: E
-      m_Type: 0
-      m_ExpectedControlType: 
+      m_Type: 1
+      m_ExpectedControlType: Button
       m_Id: bd799c6a-70df-41a5-acf8-2f7922b69ef1
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 03c917c0-1e90-4f01-8b64-88f6b8d0447e
+        m_Id: 71107abd-7aeb-4633-9a6f-ed9fc5f2d57a
         m_Path: <Keyboard>/e
         m_Interactions: 
         m_Processors: 
@@ -1111,4 +1187,4 @@ MonoBehaviour:
   workObject: {fileID: 0}
   workTime: 0
   doc: {fileID: 0}
-  roomID: 0
+  roomID: 2
