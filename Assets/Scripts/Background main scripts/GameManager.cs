@@ -16,14 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        var root = player.transform.Find("HealthBar").GetComponent<UIDocument>().rootVisualElement;
-        health=root.Q<ProgressBar>("HealthBar");
-        var roo = player.transform.Find("MindBar").GetComponent<UIDocument>().rootVisualElement;
-        mind=roo.Q<ProgressBar>("MindBar");
-        var hpcolor=root.Q(className:"unity-progress-bar__progress");
-        var spcolor=roo.Q(className:"unity-progress-bar__progress");
-        hpcolor.style.backgroundColor=(Color)(new Color32(0,175,0,255));
-        spcolor.style.backgroundColor=(Color)(new Color32(0,175,175,255));
+        
 		scr =player.GetComponent<Move>();
     }
 
@@ -33,7 +26,5 @@ public class GameManager : MonoBehaviour
         Vector3 roomPos = rooms[player.GetComponent<Move>().RoomId].transform.position;
         roomPos.z -= 10;
         mainCam.transform.position = roomPos;
-        health.value=scr.body/scr.bodyMAX*100;
-        mind.value=scr.mind/scr.mindMAX*100;
     }
 }

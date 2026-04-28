@@ -2,9 +2,44 @@
 }
 
 #HealthBar > #unity-progress-bar > .unity-progress-bar__background {
-    background-image: url("project://database/Assets/PNG%20Assets/Health%20Bar.png?fileID=-5576685416563272651&guid=45ede307dc1c39a4e9e65e8ddd17a862&type=3#Health Bar_0");
+    background-image: url("project://database/Assets/PNG%20Assets/Health%20Bar.png?fileID=4680743257250182613&guid=00b55df4b43f36a4b8c9ba98c806bbab&type=3#Health Bar (1)_0");
 }
 
 #HealthBar > #unity-progress-bar > .unity-progress-bar__background {
     -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-image: url("project://database/Assets/soul%20bar.png?fileID=-8048307009246787755&guid=546057e2191e78e41b8cc91c9ff04d15&type=3#soul bar_0");
+}
+
+#HealthBar > #unity-progress-bar > .unity-progress-bar__background {
+    background-image: url("project://database/Assets/soul%20bar.png?fileID=-8048307009246787755&guid=546057e2191e78e41b8cc91c9ff04d15&type=3#soul bar_0");
+}
+
+#HealthBar > #unity-progress-bar > .unity-progress-bar__background > .unity-progress-bar__title-container {
+    background-image: url("project://database/Assets/PNG%20Assets/Mind%20Bar.png?fileID=-8048307009246787755&guid=3aeeb125bc0c83146b17260dac5bc71f&type=3#soul bar_0");
+}
+
+#HealthBar > #unity-progress-bar > .unity-progress-bar__background > .unity-progress-bar__title-container {
+    background-image: url("project://database/Assets/PNG%20Assets/Mind%20Bar.png?fileID=-8048307009246787755&guid=3aeeb125bc0c83146b17260dac5bc71f&type=3#soul bar_0");
+}
+
+#HealthBar > #unity-progress-bar {
+    background-image: url("project://database/Assets/PNG%20Assets/Mind%20Bar.png?fileID=-8048307009246787755&guid=3aeeb125bc0c83146b17260dac5bc71f&type=3#soul bar_0");
+}
+
+#HealthBar {
+    background-image: url("project://database/Assets/PNG%20Assets/Health%20Bar.png?fileID=4680743257250182613&guid=00b55df4b43f36a4b8c9ba98c806bbab&type=3#Health Bar (1)_0");
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 1;
+}
+
+#MindBar > #unity-progress-bar > .unity-progress-bar__background {
+}
+
+#MindBar > #unity-progress-bar > .unity-progress-bar__background > .unity-progress-bar__progress {
+    background-image: url("project://database/Assets/PNG%20Assets/Health%20Bar.png?fileID=2800000&guid=00b55df4b43f36a4b8c9ba98c806bbab&type=3#Health Bar");
+}
+
+#MindBar > #unity-progress-bar > .unity-progress-bar__background > .unity-progress-bar__title-container {
+    background-image: url("project://database/Assets/PNG%20Assets/Health%20Bar.png?fileID=2800000&guid=00b55df4b43f36a4b8c9ba98c806bbab&type=3#Health Bar");
 }

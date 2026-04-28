@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class Move : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator anim;
     public work workScript;
-    public float body = 15f;
+    public float body = 10f;
     public float bodyMAX = 15f;
 
     public float mind = 15f;
@@ -28,6 +28,11 @@ public class Move : MonoBehaviour
     public int[] enkephalin;
 
     public bool currentlyWorking = false;
+
+
+    public Slider progressBar;
+    public float targetProgress;
+    public float fillSpeed = 0.5f;
 
     void Start()
     {
@@ -46,16 +51,17 @@ public class Move : MonoBehaviour
     }
 
 	private void Update() {
-        //transform.Find("HealthBar").localScale=transform.localScale;
-        //transform.Find("MindBar").localScale=transform.localScale;
-        if(transform.localScale.x==-1){
-            transform.Find("HealthBar").position=new Vector3(-0.5f,0,0)+transform.position;
-            transform.Find("MindBar").position=new Vector3(-0.9f,0,0)+transform.position;
+
+        if (progressBar.value < targetProgress)
+        {
+            // Smoothly increases the bar's value over time
+        
+            //progressBar.value = Mathf.MoveTowards(progressBar.value, targetProgress, fillSpeed * Time.deltaTime);
         }
-        else{
-            transform.Find("HealthBar").position=new Vector3(0.5f,0,0)+transform.position;
-            transform.Find("MindBar").position=new Vector3(0.9f,0,0)+transform.position;
-        }
+
+        UpdateProgress(0f);
+        progressBar.value = targetProgress;
+
         
 	}
 	// Fixed update is constant time, (this is needed for applying forces & velocity management as many devices run on different framerates)
@@ -108,6 +114,12 @@ public class Move : MonoBehaviour
         }
 
 
+    }
+
+    public void UpdateProgress(float value)
+    {
+        // Ensure value is between 0 and 1 (or your min/max)
+        targetProgress = value;
     }
 
 }
