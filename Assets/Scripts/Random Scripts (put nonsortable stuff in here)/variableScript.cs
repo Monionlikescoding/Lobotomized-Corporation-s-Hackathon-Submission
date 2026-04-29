@@ -8,6 +8,8 @@ public class variableScript : MonoBehaviour
     // Yo jianyu, u forgor that there are two sizes of doors
     public List<Sprite> doorSpritesNORMAL;
     public List<Sprite> doorSpritesCorridor;
+    public GameObject Enk;
+    public GameObject nEnk;
     void Start()
     {
         

@@ -6,7 +6,7 @@ public class Abnobuttonscripts : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     // (OnEnable is just start but slightly different)
     public VisualTreeAsset inf;
-    private GameObject abnoInfo;
+    public GameObject abnoInfo;
     private Info scr;
     private void Start()
     {
@@ -23,7 +23,6 @@ public class Abnobuttonscripts : MonoBehaviour
         }
         abnoInfo = GameObject.Find("AbnoInfo");
         scr=abnoInfo.GetComponent<Info>();
-        abnoInfo.SetActive(false);
     }
 
     private void OnButtonClick()

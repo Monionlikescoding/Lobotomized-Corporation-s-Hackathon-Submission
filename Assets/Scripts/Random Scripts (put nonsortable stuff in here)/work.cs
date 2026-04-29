@@ -11,11 +11,18 @@ public class work : MonoBehaviour
     private float workingTime = 0;
     private int amntToDo;
     private float amntToWait;
+    private int totalAmount;
+    private GameObject pos;
+    private GameObject neg;
+    private GameObject storage;
+    private GameObject temp;
     public bool isWorking = false;
     public Move playerScript;
     void Start()
     {
         playerScript = GetComponentInParent<Move>();
+        pos=GameObject.Find("Game Manager").GetComponent<variableScript>().Enk.gameObject;
+        neg=GameObject.Find("Game Manager").GetComponent<variableScript>().nEnk.gameObject;
     }
 
     // Update is called once per frame
@@ -43,7 +50,9 @@ public class work : MonoBehaviour
         workingTime = totalTime;
         amntToWait = trueTime;
         amntToDo = amountOfWorks;
+        totalAmount=amountOfWorks;
         workType = WorkType;
+        storage=Abno.transform.parent.Find("Enk WorldSpace").Find("Enk Storage").gameObject;
         InvokeRepeating("startWorking", amntToWait, amntToWait);
         Debug.Log("plus one little enkephalin");
         doorToTpTo = door;
@@ -59,12 +68,41 @@ public class work : MonoBehaviour
         float chancetoget = abno.GetComponent<IAbno>().ChanceToGetEnk;
         float rollValue = Random.Range(0.0f, 1.0f); 
         switch(workType) {
-            case "Body" : if(rollValue < (chancetoget + playerScript.bodyMAX*0.005)) {Debug.Log("plus one little enkephalin");} else {Debug.Log("not plus one little enkephalin");} break;
-            case "Mind" : if(rollValue < (chancetoget + playerScript.mindMAX*0.005)) {Debug.Log("plus one little enkephalin");} else {Debug.Log("not plus one little enkephalin");} break;
-            case "Soul" : if(rollValue < (chancetoget + playerScript.soulMAX*0.005)) {Debug.Log("plus one little enkephalin");} else {Debug.Log("not plus one little enkephalin");} break;
+            case "Body" : if(rollValue < (chancetoget + playerScript.bodyMAX*0.005)) {
+                    Debug.Log("plus one little enkephalin");
+                    temp=Instantiate(pos,storage.transform);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+            } else {
+                    Debug.Log("not plus one little enkephalin");
+                    temp=Instantiate(neg,storage.transform);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+            } break;
+            case "Mind" : if(rollValue < (chancetoget + playerScript.mindMAX*0.005)) {
+                    Debug.Log("plus one little enkephalin");
+                    temp=Instantiate(pos,storage.transform);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+            } else {
+                    Debug.Log("not plus one little enkephalin");
+                    temp=Instantiate(neg,storage.transform);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+            } break;
+            case "Soul" : if(rollValue < (chancetoget + playerScript.soulMAX*0.005)) {
+                    Debug.Log("plus one little enkephalin");
+                    temp=Instantiate(pos,storage.transform);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+            } else {
+                    Debug.Log("not plus one little enkephalin");
+                    temp=Instantiate(neg,storage.transform);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+            } break;
             case "Special" : Debug.Log("plus one little enkephalin"); break;
         }
-        Debug.Log("plus one little enkephalin");
         workingTime -= amntToWait;
         amntToDo--;
         if(workingTime < 0) {

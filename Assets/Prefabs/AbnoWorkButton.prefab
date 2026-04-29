@@ -147,6 +147,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fefa5a363a84e144b30b7cf64ba9380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Workbuttonscripts
+  EAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: E
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: fc24923f-ea98-476d-bd3f-9082239a069d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
   cell: {fileID: 0}
   abno: {fileID: 0}
   workObject: {fileID: 0}

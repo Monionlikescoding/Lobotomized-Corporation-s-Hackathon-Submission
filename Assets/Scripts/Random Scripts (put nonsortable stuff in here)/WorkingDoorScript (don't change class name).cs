@@ -47,7 +47,7 @@ public class Workbuttonscripts : MonoBehaviour
     }
 	public void OnTriggerExit2D(Collider2D collision) {
 		if(collision.CompareTag("Player")) {
-            workObject.SetActive(false);
+            if(workObject.activeSelf==true) workObject.SetActive(false);
             transform.Find("InteractButton").gameObject.SetActive(false);
 		}
 	}
