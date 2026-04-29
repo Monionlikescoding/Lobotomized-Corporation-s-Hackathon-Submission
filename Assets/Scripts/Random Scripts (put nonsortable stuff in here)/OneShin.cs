@@ -5,14 +5,16 @@ public class OneShin : MonoBehaviour, IAbno
     public GameObject player;
     public float[] playerStats;
     public int dmgType = 1;
-    public int dmgAmnt = 2;
+    public int dmgAmnt = 1;
     public bool canEscape = false;
     public bool hasAngerMeter = false;
     public int maxAngerCount = 0;
     public int angerCount = 0;
     public int threatLevel = 0;
     public float chanceToGetGift = 0.05f;
-    public float chanceToGetEnk = 0.7f;
+    public float chanceToGetEnkH = 0.3f;
+    public float chanceToGetEnkM = 0.6f;
+    public float chanceToGetEnkS = 0.05f;
     public float workTime = 1;
     public int amountOfWorks = 10;
     public float egoGiftID;
@@ -133,10 +135,22 @@ public class OneShin : MonoBehaviour, IAbno
         set => amountOfWorks = value;
     }
 
-    public float ChanceToGetEnk 
+    public float ChanceToGetEnkH 
     { 
-        get => chanceToGetEnk;
-        set => chanceToGetEnk = value;
+        get => chanceToGetEnkH;
+        set => chanceToGetEnkH = value;
+    }
+
+    public float ChanceToGetEnkM 
+    { 
+        get => chanceToGetEnkM;
+        set => chanceToGetEnkM = value;
+    }
+
+    public float ChanceToGetEnkS 
+    { 
+        get => chanceToGetEnkS;
+        set => chanceToGetEnkS = value;
     }
 
 }

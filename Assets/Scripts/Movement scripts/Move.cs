@@ -30,9 +30,11 @@ public class Move : MonoBehaviour
     public bool currentlyWorking = false;
 
 
-    public Slider progressBar;
-    public float targetProgress;
-    public float fillSpeed = 0.5f;
+    public Slider progressBarH;
+    public float targetProgressH;
+    public Slider progressBarM;
+    public float targetProgressM;
+    public float fillSpeed = 3f;
 
     void Start()
     {
@@ -52,16 +54,19 @@ public class Move : MonoBehaviour
 
 	private void Update() {
 
-        if (progressBar.value < targetProgress)
-        {
-            // Smoothly increases the bar's value over time
-        
-            //progressBar.value = Mathf.MoveTowards(progressBar.value, targetProgress, fillSpeed * Time.deltaTime);
-        }
 
-        UpdateProgress(0f);
-        progressBar.value = targetProgress;
+        UpdateProgressH((float) (body / bodyMAX));
+        //Debug.Log((float) (body / bodyMAX));
+        UpdateProgressM((float) (mind / mindMAX));
 
+        Vector2 posBar1 = gameObject.transform.position;
+        posBar1.y += 0.9f;
+        progressBarH.transform.position = posBar1;
+
+        Vector2 posBar2 = gameObject.transform.position;
+        posBar2.x -= 0.1548f;
+        posBar2.y += 0.744f;
+        progressBarM.transform.position = posBar2;
         
 	}
 	// Fixed update is constant time, (this is needed for applying forces & velocity management as many devices run on different framerates)
@@ -103,6 +108,7 @@ public class Move : MonoBehaviour
 
         if(moveValue.x < 0) {
             transform.localScale = new Vector2(-1, 1);
+
         }
         else if(moveValue.x > 0) {
             transform.localScale = new Vector2(1, 1);
@@ -110,16 +116,21 @@ public class Move : MonoBehaviour
 
         }
         else {
-            transform.localScale = new Vector2(-1,1);
+            transform.localScale = new Vector2(-1, 1);
         }
 
 
     }
 
-    public void UpdateProgress(float value)
+    public void UpdateProgressH(float value)
     {
         // Ensure value is between 0 and 1 (or your min/max)
-        targetProgress = value;
+        progressBarH.value = value;
+    }
+
+    public void UpdateProgressM(float value)
+    {
+        progressBarM.value = value;
     }
 
 }

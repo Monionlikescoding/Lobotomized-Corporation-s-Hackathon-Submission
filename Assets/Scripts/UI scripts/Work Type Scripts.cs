@@ -2,12 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class WorkTypeScripts : MonoBehaviour
 {
     private GameObject player;
     public int workTime;
-    private work wok;
+    private Move move;
     private GameObject viewPoint;
     public Workbuttonscripts buttonScript;
     public bool Using = false;
@@ -15,11 +16,15 @@ public class WorkTypeScripts : MonoBehaviour
     public Button mind;
     public Button soul;
     public Button special;
+    public int mindPercent;
+    public int bodyPercent;
+    public int soulPercent;
+    public int specialPercent;
 
 
     private void Start()
     {
-        //wok=GameObject.Find("Bongbong").GetComponent<work>();
+        move=GameObject.Find("Bongbong").GetComponent<Move>();
         body=transform.Find("HealthButton").GetComponent<Button>();
         body.onClick.AddListener(OnBodyButtonClick);
 		mind=transform.Find("MindButton").GetComponent<Button>();
@@ -33,6 +38,18 @@ public class WorkTypeScripts : MonoBehaviour
 	private void Update() {
         //if(*whatever code that needs to be here*) gameObject.SetActive(true);
         //else gameObject.SetActive(false);
+        if(buttonScript != null) {
+            if(buttonScript.abnoIF != null) {
+                bodyPercent = (int) ((buttonScript.abnoIF.ChanceToGetEnkH + move.bodyMAX*0.005)*100);
+                mindPercent = (int) ((buttonScript.abnoIF.ChanceToGetEnkM + move.mindMAX*0.005)*100);
+                soulPercent = (int) ((buttonScript.abnoIF.ChanceToGetEnkS + move.soulMAX*0.005)*100);
+                specialPercent = (int) ((1)*100);            
+            }
+        }
+        body.GetComponentInChildren<TextMeshProUGUI>().text = bodyPercent + "%";
+        mind.GetComponentInChildren<TextMeshProUGUI>().text = mindPercent + "%";
+        soul.GetComponentInChildren<TextMeshProUGUI>().text = soulPercent + "%";
+        special.GetComponentInChildren<TextMeshProUGUI>().text = specialPercent + "%";
 	}
 
 	private void OnBodyButtonClick()

@@ -13,7 +13,9 @@ public interface IAbno {
     int ThreatLevel{ get; set; } 
     int AmountOfWorks { get; set; }
     float ChanceToGetGift{ get; set; } 
-    float ChanceToGetEnk{ get; set; } 
+    float ChanceToGetEnkH{ get; set; } 
+    float ChanceToGetEnkM{ get; set; } 
+    float ChanceToGetEnkS{ get; set; } 
     float WorkTime{ get; set; } 
     int Id { get; set; }
 
