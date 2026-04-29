@@ -54,17 +54,6 @@ public class Move : MonoBehaviour
 
 	private void Update() {
 
-        if (progressBarH.value < targetProgressH || progressBarH.value > targetProgressH)
-        {
-        
-            progressBarH.value = Mathf.MoveTowards(progressBarH.value, targetProgressH, fillSpeed * Time.deltaTime);
-        }
-
-        if (progressBarM.value < targetProgressM || progressBarM.value < targetProgressM)
-        {
-        
-            progressBarM.value = Mathf.MoveTowards(progressBarM.value, targetProgressM, fillSpeed * Time.deltaTime);
-        }
 
         UpdateProgressH((float) (body / bodyMAX));
         //Debug.Log((float) (body / bodyMAX));
@@ -127,8 +116,7 @@ public class Move : MonoBehaviour
 
         }
         else {
-            transform.localScale = new Vector2(-1,1);
-            
+            transform.localScale = new Vector2(-1, 1);
         }
 
 
@@ -137,13 +125,12 @@ public class Move : MonoBehaviour
     public void UpdateProgressH(float value)
     {
         // Ensure value is between 0 and 1 (or your min/max)
-        targetProgressH = value;
+        progressBarH.value = value;
     }
 
     public void UpdateProgressM(float value)
     {
-        // Ensure value is between 0 and 1 (or your min/max)
-        targetProgressM = value;
+        progressBarM.value = value;
     }
 
 }

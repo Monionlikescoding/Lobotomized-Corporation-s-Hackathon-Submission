@@ -9,6 +9,7 @@ public class Workbuttonscripts : MonoBehaviour
     // (OnEnable is just start but slightly different)
     private GameObject player;
     public InputActionProperty EAction;
+    public IAbno abnoIF;
     public GameObject cell;
     public GameObject abno;
     public GameObject workObject;
@@ -54,7 +55,7 @@ public class Workbuttonscripts : MonoBehaviour
 
 	private void OnEClicked()
     {   
-        IAbno abnoIF = abno.GetComponent<IAbno>();
+        abnoIF = abno.GetComponent<IAbno>();
         workTime = abnoIF.WorkTime;
         workObject.SetActive(true);
         workObject.GetComponent<WorkTypeScripts>().buttonScript = gameObject.GetComponent<Workbuttonscripts>();
