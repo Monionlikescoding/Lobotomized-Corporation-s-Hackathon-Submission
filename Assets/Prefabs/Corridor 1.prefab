@@ -402,7 +402,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3658677536497691220, guid: 32e555b0e34eb481592d8cb3e45d3aeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -553,6 +553,10 @@ PrefabInstance:
     - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: m_Name
       value: SmallDoor 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225395443479329696, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: roomid
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

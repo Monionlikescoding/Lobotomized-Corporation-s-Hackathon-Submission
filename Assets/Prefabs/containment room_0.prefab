@@ -1263,8 +1263,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 4015822919459941811}
     m_Modifications:
     - target: {fileID: 1998866418110060558, guid: 7216459cafade4cd49d57989e4c37ee4, type: 3}
+      propertyPath: roomid
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998866418110060558, guid: 7216459cafade4cd49d57989e4c37ee4, type: 3}
       propertyPath: corridorRoomId
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4215789357897099082, guid: 7216459cafade4cd49d57989e4c37ee4, type: 3}
       propertyPath: m_Name
@@ -1366,4 +1370,4 @@ MonoBehaviour:
   workObject: {fileID: 0}
   workTime: 0
   doc: {fileID: 0}
-  roomID: 2
+  roomID: 4

@@ -18,6 +18,7 @@ public class work : MonoBehaviour
     private GameObject temp;
     public bool isWorking = false;
     public Move playerScript;
+    ArrayList temps;
     void Start()
     {
         playerScript = GetComponentInParent<Move>();
@@ -46,6 +47,7 @@ public class work : MonoBehaviour
         if(trueTime < 0.3) {
             trueTime = 0.3f;
         }
+        temps = new ArrayList();
         float totalTime = amountOfWorks * trueTime;
         workingTime = totalTime;
         amntToWait = trueTime;
@@ -66,52 +68,104 @@ public class work : MonoBehaviour
     public void working()
     {      
         float chancetoget = abno.GetComponent<IAbno>().ChanceToGetEnk;
+        int dmgAmnt = abno.GetComponent<IAbno>().DmgAmnt;
+        int dmgType = abno.GetComponent<IAbno>().DmgType;
         float rollValue = Random.Range(0.0f, 1.0f); 
         switch(workType) {
             case "Body" : if(rollValue < (chancetoget + playerScript.bodyMAX*0.005)) {
                     Debug.Log("plus one little enkephalin");
                     temp=Instantiate(pos,storage.transform);
+                    temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
             } else {
                     Debug.Log("not plus one little enkephalin");
                     temp=Instantiate(neg,storage.transform);
+                    temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
-            } break;
+                    DealDmg(dmgType, dmgAmnt);
+            } 
+            break;
             case "Mind" : if(rollValue < (chancetoget + playerScript.mindMAX*0.005)) {
                     Debug.Log("plus one little enkephalin");
                     temp=Instantiate(pos,storage.transform);
+                    temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
-            } else {
+            } 
+            else {
                     Debug.Log("not plus one little enkephalin");
                     temp=Instantiate(neg,storage.transform);
+                    temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+                    DealDmg(dmgType, dmgAmnt);
             } break;
             case "Soul" : if(rollValue < (chancetoget + playerScript.soulMAX*0.005)) {
                     Debug.Log("plus one little enkephalin");
                     temp=Instantiate(pos,storage.transform);
+                    temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
-            } else {
+            } 
+            else {
                     Debug.Log("not plus one little enkephalin");
                     temp=Instantiate(neg,storage.transform);
+                    temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+                    DealDmg(dmgType, dmgAmnt);
             } break;
             case "Special" : Debug.Log("plus one little enkephalin"); break;
         }
         workingTime -= amntToWait;
         amntToDo--;
-        if(workingTime < 0) {
+        if(workingTime <= 0 || amntToDo <= 0) {
+            workingTime = 0;
             Vector2 tpPos = doorToTpTo.transform.position;
+            foreach (GameObject item in temps)
+            {
+                Destroy(item);
+            }
             tpPos.y -= 0.5f;
             gameObject.transform.position = tpPos;
             playerScript.RoomId = doorToTpTo.GetComponent<CorridorDoor>().corridorRoomId;
 
             CancelInvoke("startWorking");
+        }
+    }
+
+    public void DealDmg(int type, int amnt) {
+        switch(type) {
+            case 0 : 
+            if(playerScript.body >= amnt) 
+            {
+                playerScript.body -= amnt;
+            } 
+            else {
+                playerScript.body = 0;
+            } 
+            break;
+            case 1 : 
+            if(playerScript.mind >= amnt) 
+            {
+                playerScript.mind -= amnt;
+            } 
+            else {
+                playerScript.mind = 0;
+            } 
+            break;
+            case 2 : 
+            if(playerScript.mind >= amnt) 
+            {
+                playerScript.mind -= amnt;
+            } 
+            else {playerScript.mind = 0;} 
+            if(playerScript.body >= amnt) 
+            {playerScript.body -= amnt;} 
+            else {playerScript.body = 0;} 
+            break;
         }
     }
 }

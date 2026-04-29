@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3aeeb125bc0c83146b17260dac5bc71f
+guid: 5d9b39c493201458c8f8e8f9ef70db1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8048307009246787755
-    second: soul bar_0
+      213: 6496782814633342493
+    second: Health Bar 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,16 +96,29 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soul bar_0
+      name: Health Bar 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 50
+        width: 40
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5570f86ba6bae4090800000000000000
-      internalID: -8048307009246787755
+      spriteID: d1635196c85392a50800000000000000
+      internalID: 6496782814633342493
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      soul bar_0: -8048307009246787755
+      Health Bar 1_0: 6496782814633342493
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
