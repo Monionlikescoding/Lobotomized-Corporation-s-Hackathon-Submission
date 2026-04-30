@@ -56,7 +56,6 @@ public class Move : MonoBehaviour
 
 
         UpdateProgressH((float) (body / bodyMAX));
-        //Debug.Log((float) (body / bodyMAX));
         UpdateProgressM((float) (mind / mindMAX));
 
         Vector2 posBar1 = gameObject.transform.position;
