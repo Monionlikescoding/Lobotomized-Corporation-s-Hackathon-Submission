@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 public class OneShin : MonoBehaviour, IAbno
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,6 +19,8 @@ public class OneShin : MonoBehaviour, IAbno
     public float workTime = 1;
     public int amountOfWorks = 10;
     public float egoGiftID;
+    public int cooldown=5;
+    private int currentCD=-1;
     public int id = 1;
 
     // Update is called once per frame
@@ -34,10 +37,27 @@ public class OneShin : MonoBehaviour, IAbno
         else {
             playerStats[3] = 0;
         }
-        
+        currentCD=-1;
+        transform.parent.Find("Enk WorldSpace").Find("Enk Text").gameObject.GetComponent<TextMeshProUGUI>().enabled=false;
+    }
+	public void FixedUpdate() {
+		if(currentCD>0){
+            currentCD--;
+        }
+        if(currentCD==0){
+            foreach (GameObject item in player.GetComponent<work>().temps)
+            {
+                Destroy(item);
+            }
+            currentCD--;
+            transform.parent.Find("Enk WorldSpace").Find("Enk Text").gameObject.GetComponent<TextMeshProUGUI>().enabled=false;
+        }
+	}
+    public void fin(){
+        currentCD=cooldown*60;
     }
 
-    public void onBadWorkResult() {
+	public void onBadWorkResult() {
 
     }
 

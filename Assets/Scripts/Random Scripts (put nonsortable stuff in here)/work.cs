@@ -1,5 +1,6 @@
 using UnityEngine;
-using System.Collections; 
+using System.Collections;
+using TMPro;
 
 public class work : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class work : MonoBehaviour
     private GameObject temp;
     public bool isWorking = false;
     public Move playerScript;
-    ArrayList temps;
+    public ArrayList temps;
+    private GameObject EnkText;
+    private int EnkCount;
     void Start()
     {
         playerScript = GetComponentInParent<Move>();
@@ -48,8 +51,12 @@ public class work : MonoBehaviour
             trueTime = 0.3f;
         }
         temps = new ArrayList();
-        float totalTime = amountOfWorks * trueTime;
-        workingTime = totalTime;
+		float totalTime = amountOfWorks * trueTime;
+        EnkText=abno.transform.parent.Find("Enk WorldSpace").Find("Enk Text").gameObject;
+        EnkText.GetComponent<TextMeshProUGUI>().enabled=true;
+        EnkText.GetComponent<TextMeshProUGUI>().text="+0";
+		EnkCount =0;
+		workingTime = totalTime;
         amntToWait = trueTime;
         amntToDo = amountOfWorks;
         totalAmount=amountOfWorks;
@@ -79,6 +86,8 @@ public class work : MonoBehaviour
                     temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+                    EnkCount++;
+                    EnkText.GetComponent<TextMeshProUGUI>().text="+"+EnkCount;
             } else {
                     //Debug.Log("not plus one little enkephalin");
                     temp=Instantiate(neg,storage.transform);
@@ -94,6 +103,8 @@ public class work : MonoBehaviour
                     temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+                    EnkCount++;
+                    EnkText.GetComponent<TextMeshProUGUI>().text="+"+EnkCount;
             } 
             else {
                     //Debug.Log("not plus one little enkephalin");
@@ -109,6 +120,8 @@ public class work : MonoBehaviour
                     temps.Add(temp);
                     temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
+                    EnkCount++;
+                    EnkText.GetComponent<TextMeshProUGUI>().text="+"+EnkCount;
             } 
             else {
                    // Debug.Log("not plus one little enkephalin");
@@ -126,10 +139,7 @@ public class work : MonoBehaviour
         if(workingTime <= 0 || amntToDo <= 0) {
             workingTime = 0;
             Vector2 tpPos = doorToTpTo.transform.position;
-            foreach (GameObject item in temps)
-            {
-                Destroy(item);
-            }
+            abno.GetComponent<OneShin>().fin();
             tpPos.y -= 0.5f;
             gameObject.transform.position = tpPos;
             playerScript.RoomId = doorToTpTo.GetComponent<CorridorDoor>().corridorRoomId;
