@@ -139,7 +139,7 @@ public class work : MonoBehaviour
         if(workingTime <= 0 || amntToDo <= 0) {
             workingTime = 0;
             Vector2 tpPos = doorToTpTo.transform.position;
-            abno.GetComponent<IAbno>().finished(); // NEVER EVER USE THE CLASS ITSELF. DO YOU UNDERSTAND!?!?!
+            abno.GetComponent<IAbno>().finished(EnkCount); // NEVER EVER USE THE CLASS ITSELF. DO YOU UNDERSTAND!?!?!
             tpPos.y -= 0.5f;
             gameObject.transform.position = tpPos;
             playerScript.RoomId = doorToTpTo.GetComponent<CorridorDoor>().corridorRoomId;

@@ -12,7 +12,7 @@ public interface IAbno {
     int AngerCount{ get; set; } 
     int ThreatLevel{ get; set; } 
     int AmountOfWorks { get; set; }
-    float ChanceToGetGift{ get; set; } 
+	float ChanceToGetGift{ get; set; } 
     float ChanceToGetEnkH{ get; set; } 
     float ChanceToGetEnkM{ get; set; } 
     float ChanceToGetEnkS{ get; set; } 
@@ -21,7 +21,7 @@ public interface IAbno {
     float WorkTime{ get; set; } 
     int Id { get; set; }
 
-    public void finished();
+    public void finished(int enke);
 
     public void onBadWorkResult();
 

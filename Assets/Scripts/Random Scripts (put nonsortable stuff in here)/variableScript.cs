@@ -10,6 +10,9 @@ public class variableScript : MonoBehaviour
     public List<Sprite> doorSpritesCorridor;
     public GameObject Enk;
     public GameObject nEnk;
+    public Sprite good;
+    public Sprite norm;
+    public Sprite bad;
     void Start()
     {
         
