@@ -55,11 +55,12 @@ public class Workbuttonscripts : MonoBehaviour
 
 	private void OnEClicked()
     {   
-        abnoIF = abno.GetComponent<IAbno>();
-        workTime = abnoIF.WorkTime;
-        workObject.SetActive(true);
-        workObject.GetComponent<WorkTypeScripts>().buttonScript = gameObject.GetComponent<Workbuttonscripts>();
-        Debug.Log("clicked");
+        if(abno.GetComponent<OneShin>().CurrentCD<0){
+            abnoIF = abno.GetComponent<IAbno>();
+            workTime = abnoIF.WorkTime;
+            workObject.SetActive(true);
+            workObject.GetComponent<WorkTypeScripts>().buttonScript = gameObject.GetComponent<Workbuttonscripts>();
+        }
         //change work time based on another stat later
     }
 

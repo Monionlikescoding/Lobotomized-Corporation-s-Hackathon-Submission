@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class OneShin : MonoBehaviour, IAbno
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,10 +19,15 @@ public class OneShin : MonoBehaviour, IAbno
     public float chanceToGetEnkS = 0.05f;
     public float workTime = 1;
     public int amountOfWorks = 10;
+    public int good=7;
+    public int bad=3;
     public float egoGiftID;
     public float cooldown=5f;
     private float currentCD=-1f;
     public int id = 1;
+    private GameObject cd;
+    private GameObject result;
+    private variableScript mang;
 
     // Update is called once per frame
     public void Start() {
@@ -38,8 +44,13 @@ public class OneShin : MonoBehaviour, IAbno
             playerStats[3] = 0;
         }
         currentCD=-1;
+        cd=transform.parent.Find("Enk WorldSpace").Find("WorkResultUI").Find("WorkCoolDown").gameObject;
+        cd.GetComponent<TextMeshProUGUI>().text = "";
+        result=transform.parent.Find("Enk WorldSpace").Find("WorkResultUI").Find("WorkResult").gameObject;
+        result.GetComponent<Image>().enabled=false;
+        mang=GameObject.Find("Game Manager").GetComponent<variableScript>();
 
-        Transform parentTransform = transform.parent;
+		Transform parentTransform = transform.parent;
         
         if (parentTransform != null)
         {
@@ -59,20 +70,36 @@ public class OneShin : MonoBehaviour, IAbno
 	public void FixedUpdate() {
 		if(currentCD>0){
             currentCD--;
-        }
+            cd.GetComponent<TextMeshProUGUI>().text = ((int)currentCD/60).ToString();
+            result.GetComponent<Image>().enabled=true;
+		}
         if(currentCD==0){
             foreach (GameObject item in player.GetComponent<work>().temps)
             {
                 Destroy(item);
             }
             currentCD--;
+            cd.GetComponent<TextMeshProUGUI>().text = "";
+            result.GetComponent<Image>().enabled=false;
             transform.parent.Find("Enk WorldSpace").Find("Enk Text").gameObject.GetComponent<TextMeshProUGUI>().enabled=false;
         }
 	}
 
-    public void finished(){
+    public void finished(int enke){
         currentCD=cooldown*60;
-    }
+        if(enke<=bad){
+            result.GetComponent<Image>().sprite=mang.bad;
+            onBadWorkResult();
+        }
+        else if(enke>=good){
+            result.GetComponent<Image>().sprite=mang.good;
+            onGoodWorkResult();
+        }
+        else{
+            result.GetComponent<Image>().sprite=mang.norm;
+            onNormalWorkResult();
+		}
+	}
 
 	public void onBadWorkResult() {
 
