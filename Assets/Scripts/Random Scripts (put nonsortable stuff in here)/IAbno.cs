@@ -16,10 +16,12 @@ public interface IAbno {
     float ChanceToGetEnkH{ get; set; } 
     float ChanceToGetEnkM{ get; set; } 
     float ChanceToGetEnkS{ get; set; } 
+    float Cooldown{ get; set; } 
+    float CurrentCD{ get; set; } 
     float WorkTime{ get; set; } 
     int Id { get; set; }
 
-
+    public void finished();
 
     public void onBadWorkResult();
 

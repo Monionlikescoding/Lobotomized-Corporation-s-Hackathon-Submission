@@ -904,7 +904,6 @@ GameObject:
   m_Component:
   - component: {fileID: 985884393981137610}
   - component: {fileID: 5051760534092289370}
-  - component: {fileID: 4988345603067407626}
   m_Layer: 0
   m_Name: OneShinSprite
   m_TagString: Untagged
@@ -986,36 +985,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4988345603067407626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995471017583948184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bbde6bd79321f4489e25ef2fb24c9e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OneShin
-  player: {fileID: 0}
-  playerStats: []
-  dmgType: 1
-  dmgAmnt: 2
-  canEscape: 0
-  hasAngerMeter: 0
-  maxAngerCount: 0
-  angerCount: 0
-  threatLevel: 0
-  chanceToGetGift: 0.05
-  chanceToGetEnkH: 0.3
-  chanceToGetEnkM: 0.6
-  chanceToGetEnkS: 0.05
-  workTime: 1
-  amountOfWorks: 10
-  egoGiftID: 0
-  cooldown: 5
-  id: 1
 --- !u!1 &8406018638099594753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,11 +1377,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1998866418110060558, guid: 7216459cafade4cd49d57989e4c37ee4, type: 3}
       propertyPath: roomid
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1998866418110060558, guid: 7216459cafade4cd49d57989e4c37ee4, type: 3}
       propertyPath: corridorRoomId
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4215789357897099082, guid: 7216459cafade4cd49d57989e4c37ee4, type: 3}
       propertyPath: m_Name
@@ -1514,4 +1483,4 @@ MonoBehaviour:
   workObject: {fileID: 0}
   workTime: 0
   doc: {fileID: 0}
-  roomID: 4
+  roomID: 2

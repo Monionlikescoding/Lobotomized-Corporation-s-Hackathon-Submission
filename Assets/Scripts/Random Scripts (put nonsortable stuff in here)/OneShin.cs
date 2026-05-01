@@ -19,8 +19,8 @@ public class OneShin : MonoBehaviour, IAbno
     public float workTime = 1;
     public int amountOfWorks = 10;
     public float egoGiftID;
-    public int cooldown=5;
-    private int currentCD=-1;
+    public float cooldown=5f;
+    private float currentCD=-1f;
     public int id = 1;
 
     // Update is called once per frame
@@ -55,6 +55,7 @@ public class OneShin : MonoBehaviour, IAbno
             }
         }
     }
+    
 	public void FixedUpdate() {
 		if(currentCD>0){
             currentCD--;
@@ -68,7 +69,8 @@ public class OneShin : MonoBehaviour, IAbno
             transform.parent.Find("Enk WorldSpace").Find("Enk Text").gameObject.GetComponent<TextMeshProUGUI>().enabled=false;
         }
 	}
-    public void fin(){
+
+    public void finished(){
         currentCD=cooldown*60;
     }
 
@@ -186,6 +188,18 @@ public class OneShin : MonoBehaviour, IAbno
     { 
         get => chanceToGetEnkS;
         set => chanceToGetEnkS = value;
+    }
+
+    public float Cooldown 
+    { 
+        get => cooldown;
+        set => cooldown = value;
+    }
+
+    public float CurrentCD 
+    { 
+        get => currentCD;
+        set => currentCD = value;
     }
 
 }
