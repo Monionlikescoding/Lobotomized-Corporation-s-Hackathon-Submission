@@ -193,6 +193,18 @@ public class OneShin : MonoBehaviour, IAbno
         set => id = value;
     }
 
+    public int Good 
+    { 
+        get => good;
+        set => good = value;
+    }
+
+    public int Bad 
+    { 
+        get => bad;
+        set => bad = value;
+    }
+
     public int AmountOfWorks 
     { 
         get => amountOfWorks;
