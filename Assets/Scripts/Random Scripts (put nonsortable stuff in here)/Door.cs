@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using Unity.Hierarchy;
 
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IDoor
 {
     Animator anim;
     public GameObject exit;
@@ -177,4 +177,10 @@ public class Door : MonoBehaviour
     {
         fullyOpen = false;
     }*/
+
+    public int RoomID 
+    { 
+        get => roomid;
+        set => roomid = value;
+    }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using Unity.Hierarchy;
 
 
-public class CorridorDoor : MonoBehaviour
+public class CorridorDoor : MonoBehaviour, IDoor
 {
     Animator anim;
     Transform AnimationRunner;
@@ -61,5 +61,11 @@ public class CorridorDoor : MonoBehaviour
             opening=true;
         }
 
+    }
+
+    public int RoomID 
+    { 
+        get => roomid;
+        set => roomid = value;
     }
 }

@@ -55,7 +55,7 @@ public class Workbuttonscripts : MonoBehaviour
 
 	private void OnEClicked()
     {   
-        if(abno.GetComponent<OneShin>().CurrentCD<0){
+        if(abno.GetComponent<IAbno>().CurrentCD<0){
             abnoIF = abno.GetComponent<IAbno>();
             workTime = abnoIF.WorkTime;
             workObject.SetActive(true);

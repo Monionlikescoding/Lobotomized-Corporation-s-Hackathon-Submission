@@ -24,6 +24,7 @@ public class OneShin : MonoBehaviour, IAbno
     public float egoGiftID;
     public float cooldown=5f;
     private float currentCD=-1f;
+    public int workResult = 0;
     public int id = 1;
     private GameObject cd;
     private GameObject result;
@@ -71,6 +72,13 @@ public class OneShin : MonoBehaviour, IAbno
 		if(currentCD>0){
             currentCD--;
             cd.GetComponent<TextMeshProUGUI>().text = ((int)currentCD/60).ToString();
+            
+            switch(workResult) {
+                case 0: cd.GetComponent<TextMeshProUGUI>().color = new Color32(255, 0, 0, 255); break; // RGB Alpha
+                case 1: cd.GetComponent<TextMeshProUGUI>().color = new Color32(255, 168, 0, 255); break;
+                case 2: cd.GetComponent<TextMeshProUGUI>().color = new Color32(0, 255, 0, 255); break;
+            }
+
             result.GetComponent<Image>().enabled=true;
 		}
         if(currentCD==0){
@@ -90,14 +98,17 @@ public class OneShin : MonoBehaviour, IAbno
         if(enke<=bad){
             result.GetComponent<Image>().sprite=mang.bad;
             onBadWorkResult();
+            workResult = 0;
         }
         else if(enke>=good){
             result.GetComponent<Image>().sprite=mang.good;
             onGoodWorkResult();
+            workResult = 2;
         }
         else{
             result.GetComponent<Image>().sprite=mang.norm;
             onNormalWorkResult();
+            workResult = 1;
 		}
 	}
 
@@ -191,6 +202,18 @@ public class OneShin : MonoBehaviour, IAbno
     { 
         get => id;
         set => id = value;
+    }
+
+    public int Good 
+    { 
+        get => good;
+        set => good = value;
+    }
+
+    public int Bad 
+    { 
+        get => bad;
+        set => bad = value;
     }
 
     public int AmountOfWorks 
