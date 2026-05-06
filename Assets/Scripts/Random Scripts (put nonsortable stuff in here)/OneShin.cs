@@ -1,34 +1,36 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 public class OneShin : MonoBehaviour, IAbno
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject player;
     public float[] playerStats;
-    public int dmgType = 1;
-    public int dmgAmnt = 1;
-    public bool canEscape = false;
-    public bool hasAngerMeter = false;
-    public int maxAngerCount = 0;
-    public int angerCount = 0;
-    public int threatLevel = 0;
-    public float chanceToGetGift = 0.05f;
-    public float chanceToGetEnkH = 0.3f;
-    public float chanceToGetEnkM = 0.6f;
-    public float chanceToGetEnkS = 0.05f;
-    public float workTime = 1;
-    public int amountOfWorks = 10;
-    public int good=7;
-    public int bad=3;
+    public int dmgType;
+    public int dmgAmnt;
+    public bool canEscape;
+    public bool hasAngerMeter;
+    public int maxAngerCount;
+    public int angerCount;
+    public int threatLevel;
+    public float chanceToGetGift;
+    public float chanceToGetEnkH;
+    public float chanceToGetEnkM;
+    public float chanceToGetEnkS;
+    public float workTime;
+    public int amountOfWorks;
+    public int good;
+    public int bad;
     public float egoGiftID;
-    public float cooldown=5f;
-    private float currentCD=-1f;
-    public int workResult = 0;
-    public int id = 1;
+    public float cooldown;
+    private float currentCD;
+    public int workResult;
+    public int id;
     private GameObject cd;
     private GameObject result;
     private variableScript mang;
+    private ArrayList tem;
 
     // Update is called once per frame
     public void Start() {
@@ -66,6 +68,27 @@ public class OneShin : MonoBehaviour, IAbno
                 }
             }
         }
+        switch(id){ //all of my code is tangled with the oneshin script specifically so just use this instead unless you want to recalibrate all of my code
+            case 1:
+                dmgType=1;
+                dmgAmnt=1;
+                canEscape=false;
+                hasAngerMeter=false;
+                maxAngerCount=0;
+                angerCount=0;
+                threatLevel=0;
+                chanceToGetGift=0.05f;
+                chanceToGetEnkH=0.15f;
+                chanceToGetEnkM=0.4f;
+                chanceToGetEnkS=0.75f;
+                workTime=1;
+                amountOfWorks = 10;
+                good=7;
+                bad=3;
+                egoGiftID=1;
+                cooldown=5f;
+                break;
+        }
     }
     
 	public void FixedUpdate() {
@@ -79,10 +102,9 @@ public class OneShin : MonoBehaviour, IAbno
                 case 2: cd.GetComponent<TextMeshProUGUI>().color = new Color32(0, 255, 0, 255); break;
             }
 
-            result.GetComponent<Image>().enabled=true;
 		}
         if(currentCD==0){
-            foreach (GameObject item in player.GetComponent<work>().temps)
+            foreach (GameObject item in tem)
             {
                 Destroy(item);
             }
@@ -95,6 +117,8 @@ public class OneShin : MonoBehaviour, IAbno
 
     public void finished(int enke){
         currentCD=cooldown*60;
+        result.GetComponent<Image>().enabled=true;
+        tem=player.GetComponent<work>().temps;
         if(enke<=bad){
             result.GetComponent<Image>().sprite=mang.bad;
             onBadWorkResult();
