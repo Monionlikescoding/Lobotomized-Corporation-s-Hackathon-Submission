@@ -1,123 +1,74 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class WorkTypeScripts : MonoBehaviour
 {
     private GameObject player;
     public int workTime;
-    private work wok;
+    private Move move;
     private GameObject viewPoint;
     public Workbuttonscripts buttonScript;
     public bool Using = false;
+    public Button body;
+    public Button mind;
+    public Button soul;
+    public Button special;
+    public int mindPercent;
+    public int bodyPercent;
+    public int soulPercent;
+    public int specialPercent;
 
 
     private void Start()
     {
-        // 1. Get the root VisualElement from the UIDocument component
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement; // Gets the root element
-
-        // 2. Find the button by name
-        Button myBodyButton = root.Q<Button>("Body"); // Gets the button
-
-        // 3. Assign the function to the 'clicked' event
-        if (myBodyButton != null)
-        {
-            myBodyButton.clicked += OnBodyButtonClick;
-        }
-
-        Button myMindButton = root.Q<Button>("Mind"); // Gets the button
-
-        // 3. Assign the function to the 'clicked' event
-        if (myMindButton != null)
-        {
-            myMindButton.clicked += OnMindButtonClick;
-        }
-
-        Button mySoulButton = root.Q<Button>("Soul"); // Gets the button
-
-        // 3. Assign the function to the 'clicked' event
-        if (mySoulButton != null)
-        {
-            mySoulButton.clicked += OnSoulButtonClick;
-        }
-
-        Button mySpecialButton = root.Q<Button>("Special"); // Gets the button
-
-        // 3. Assign the function to the 'clicked' event
-        if (mySpecialButton != null)
-        {
-            mySpecialButton.clicked += OnSpecialButtonClick;
-        }
-
-        player=GameObject.Find("Bongbong");
-        viewPoint=GameObject.Find("Main Camera");
+        move=GameObject.Find("Bongbong").GetComponent<Move>();
+        body=transform.Find("HealthButton").GetComponent<Button>();
+        body.onClick.AddListener(OnBodyButtonClick);
+		mind=transform.Find("MindButton").GetComponent<Button>();
+        mind.onClick.AddListener(OnMindButtonClick);
+		soul=transform.Find("SoulButton").GetComponent<Button>();
+        soul.onClick.AddListener(OnSoulButtonClick);
+		special=transform.Find("SpecialButton").GetComponent<Button>();
+        special.onClick.AddListener(OnSpecialButtonClick);
         gameObject.SetActive(false);
-        //wok=GameObject.Find("Bongbong").GetComponent<work>();
-    }
-	private void Update() {
-        //if(*whatever code that needs to be here*) gameObject.SetActive(true);
-        //else gameObject.SetActive(false);
-		gameObject.GetComponent<RectTransform>().transform.position=viewPoint.transform.position+new Vector3(-7.5f,-4f,10);
 	}
-
-    public void FixingButtons() {
-
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-        Button myBodyButton = root.Q<Button>("Body");
-
-        if (myBodyButton != null)
-        {
-            myBodyButton.clicked += OnBodyButtonClick;
+	private void Update() {
+        if(buttonScript != null) {
+            if(buttonScript.abnoIF != null) {
+                bodyPercent = (int) ((buttonScript.abnoIF.ChanceToGetEnkH + move.bodyMAX*0.005)*100);
+                mindPercent = (int) ((buttonScript.abnoIF.ChanceToGetEnkM + move.mindMAX*0.005)*100);
+                soulPercent = (int) ((buttonScript.abnoIF.ChanceToGetEnkS + move.soulMAX*0.005)*100);
+                specialPercent = (int) ((1)*100);            
+            }
         }
-
-        Button myMindButton = root.Q<Button>("Mind"); // Gets the button
-
-        // 3. Assign the function to the 'clicked' event
-        if (myMindButton != null)
-        {
-            myMindButton.clicked += OnMindButtonClick;
-        }
-
-        Button mySoulButton = root.Q<Button>("Soul"); // Gets the button
-
-        // 3. Assign the function to the 'clicked' event
-        if (mySoulButton != null)
-        {
-            mySoulButton.clicked += OnSoulButtonClick;
-        }
-
-        Button mySpecialButton = root.Q<Button>("Special"); // Gets the button
-
-        // 3. Assign the function to the 'clicked' event
-        if (mySpecialButton != null)
-        {
-            mySpecialButton.clicked += OnSpecialButtonClick;
-        }
-    }
+        body.GetComponentInChildren<TextMeshProUGUI>().text = bodyPercent + "%";
+        mind.GetComponentInChildren<TextMeshProUGUI>().text = mindPercent + "%";
+        soul.GetComponentInChildren<TextMeshProUGUI>().text = soulPercent + "%";
+        special.GetComponentInChildren<TextMeshProUGUI>().text = specialPercent + "%";
+	}
 
 	private void OnBodyButtonClick()
     {   
         Debug.Log("[On Hit] : Murder");
-        buttonScript.start("body");
-        Using = false;
-    }
+        buttonScript.start("Body");
+	}
     private void OnMindButtonClick()
     {   
         Debug.Log("[On Think] : Murder");
-        buttonScript.start("mind");
-        Using = false;
-    }
+        buttonScript.start("Mind");
+	}
     private void OnSoulButtonClick()
     {   
         Debug.Log("[On Ego] : Murder");
-        buttonScript.start("soul");
-        Using = false;
-    }
+        buttonScript.start("Soul");
+	}
     private void OnSpecialButtonClick()
     {   
         Debug.Log("[On Special Work] : Murder");
-        buttonScript.start("special");
-        Using = false;
-    }
+        buttonScript.start("Special");
+	}
     
 }

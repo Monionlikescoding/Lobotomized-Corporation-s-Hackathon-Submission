@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using Unity.Hierarchy;
 
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IDoor
 {
     Animator anim;
     public GameObject exit;
@@ -33,6 +33,9 @@ public class Door : MonoBehaviour
                 break;
             case 0: // norm
                 openSprites=GameObject.Find("Game Manager").GetComponent<variableScript>().doorSpritesNORMAL;
+                break;
+            case 2: // corridor
+                openSprites=GameObject.Find("Game Manager").GetComponent<variableScript>().doorSpritesCorridor;
                 break;
         }
     }
@@ -174,4 +177,10 @@ public class Door : MonoBehaviour
     {
         fullyOpen = false;
     }*/
+
+    public int RoomID 
+    { 
+        get => roomid;
+        set => roomid = value;
+    }
 }

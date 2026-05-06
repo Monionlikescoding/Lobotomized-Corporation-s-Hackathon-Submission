@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
@@ -15,19 +15,26 @@ public class Move : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator anim;
     public work workScript;
-    public float body = 15f;
+    public float body = 10f;
     public float bodyMAX = 15f;
 
     public float mind = 15f;
     public float mindMAX = 15f;
 
-    public float soul = 15f;
-    public float soulMAX = 15f;
+    public float soul=15f;
+    public float soulMAX=15f;
 
     public bool[] Favors; // This is the array that has the boolean values for whether special work is available
     public int[] enkephalin;
 
     public bool currentlyWorking = false;
+
+
+    public Slider progressBarH;
+    public float targetProgressH;
+    public Slider progressBarM;
+    public float targetProgressM;
+    public float fillSpeed = 3f;
 
     void Start()
     {
@@ -45,14 +52,30 @@ public class Move : MonoBehaviour
         playerRb.linearDamping = 20f;
     }
 
-    // Fixed update is constant time, (this is needed for applying forces & velocity management as many devices run on different framerates)
-    void FixedUpdate()
+	private void Update() {
+
+
+        UpdateProgressH((float) (body / bodyMAX));
+        UpdateProgressM((float) (mind / mindMAX));
+
+        Vector2 posBar1 = gameObject.transform.position;
+        posBar1.y += 0.9f;
+        progressBarH.transform.position = posBar1;
+
+        Vector2 posBar2 = gameObject.transform.position;
+        posBar2.x -= 0.1548f;
+        posBar2.y += 0.744f;
+        progressBarM.transform.position = posBar2;
+        
+	}
+	// Fixed update is constant time, (this is needed for applying forces & velocity management as many devices run on different framerates)
+	void FixedUpdate()
     {
         Vector2 moveValue = moveAction.ReadValue<Vector2>(); // no need to divide it by accel
         moveValue.y=0; // you can only move in the x-direction
         if(!currentlyWorking) {
             playerRb.AddForce(moveValue * speed * 500 * Time.deltaTime);
-        }
+        
 
         Vector2 vel = playerRb.linearVelocity;
 
@@ -84,16 +107,29 @@ public class Move : MonoBehaviour
 
         if(moveValue.x < 0) {
             transform.localScale = new Vector2(-1, 1);
-            transform.Find("HealthBar").localScale=new Vector2(-1,1);
-            transform.Find("MindBar").localScale=new Vector2(-1,1);
+
         }
         else if(moveValue.x > 0) {
             transform.localScale = new Vector2(1, 1);
-            transform.Find("HealthBar").localScale=new Vector2(1,1);
-            transform.Find("MindBar").localScale=new Vector2(1,1);
+        }
+
+        }
+        else {
+            transform.localScale = new Vector2(-1, 1);
         }
 
 
+    }
+
+    public void UpdateProgressH(float value)
+    {
+        // Ensure value is between 0 and 1 (or your min/max)
+        progressBarH.value = value;
+    }
+
+    public void UpdateProgressM(float value)
+    {
+        progressBarM.value = value;
     }
 
 }
