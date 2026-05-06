@@ -2,7 +2,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
 
 public class Workbuttonscripts : MonoBehaviour
 {
@@ -50,7 +49,9 @@ public class Workbuttonscripts : MonoBehaviour
 	}
 	public void OnTriggerExit2D(Collider2D collision) {
 		if(collision.CompareTag("Player")) {
-            if(workObject.activeSelf==true) workObject.SetActive(false);
+            if(workObject != null) {
+                if(workObject.activeSelf==true) workObject.SetActive(false);
+            }
             transform.Find("InteractButton").gameObject.SetActive(false);
 		}
 	}

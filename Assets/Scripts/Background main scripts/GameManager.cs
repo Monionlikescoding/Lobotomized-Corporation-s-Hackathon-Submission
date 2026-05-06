@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor.TerrainTools;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
