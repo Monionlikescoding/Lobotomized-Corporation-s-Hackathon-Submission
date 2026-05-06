@@ -36,8 +36,6 @@ public class WorkTypeScripts : MonoBehaviour
         gameObject.SetActive(false);
 	}
 	private void Update() {
-        //if(*whatever code that needs to be here*) gameObject.SetActive(true);
-        //else gameObject.SetActive(false);
         if(buttonScript != null) {
             if(buttonScript.abnoIF != null) {
                 bodyPercent = (int) ((buttonScript.abnoIF.ChanceToGetEnkH + move.bodyMAX*0.005)*100);

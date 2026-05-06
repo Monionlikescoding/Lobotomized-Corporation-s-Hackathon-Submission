@@ -84,7 +84,7 @@ public class work : MonoBehaviour
                     //Debug.Log("plus one little enkephalin");
                     temp=Instantiate(pos,storage.transform);
                     temps.Add(temp);
-                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(EnkCount)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
                     EnkCount++;
                     EnkText.GetComponent<TextMeshProUGUI>().text="+"+EnkCount;
@@ -92,7 +92,7 @@ public class work : MonoBehaviour
                     //Debug.Log("not plus one little enkephalin");
                     temp=Instantiate(neg,storage.transform);
                     temps.Add(temp);
-                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.localPosition=new Vector3(0,1.7f-3.4f/(2*totalAmount)-(totalAmount-amntToDo-EnkCount)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
                     DealDmg(dmgType, dmgAmnt);
             } 
@@ -101,7 +101,7 @@ public class work : MonoBehaviour
                     //Debug.Log("plus one little enkephalin");
                     temp=Instantiate(pos,storage.transform);
                     temps.Add(temp);
-                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(EnkCount)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
                     EnkCount++;
                     EnkText.GetComponent<TextMeshProUGUI>().text="+"+EnkCount;
@@ -110,7 +110,7 @@ public class work : MonoBehaviour
                     //Debug.Log("not plus one little enkephalin");
                     temp=Instantiate(neg,storage.transform);
                     temps.Add(temp);
-                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.localPosition=new Vector3(0,1.7f-3.4f/(2*totalAmount)-(totalAmount-amntToDo-EnkCount)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
                     DealDmg(dmgType, dmgAmnt);
             } break;
@@ -118,7 +118,7 @@ public class work : MonoBehaviour
                     //Debug.Log("plus one little enkephalin");
                     temp=Instantiate(pos,storage.transform);
                     temps.Add(temp);
-                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(EnkCount)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
                     EnkCount++;
                     EnkText.GetComponent<TextMeshProUGUI>().text="+"+EnkCount;
@@ -127,7 +127,7 @@ public class work : MonoBehaviour
                    // Debug.Log("not plus one little enkephalin");
                     temp=Instantiate(neg,storage.transform);
                     temps.Add(temp);
-                    temp.transform.localPosition=new Vector3(0,-1.7f+3.4f/(2*totalAmount)+(totalAmount-amntToDo)*3.4f/totalAmount,0);
+                    temp.transform.localPosition=new Vector3(0,1.7f-3.4f/(2*totalAmount)-(totalAmount-amntToDo-EnkCount)*3.4f/totalAmount,0);
                     temp.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,3.4f/totalAmount);
                     DealDmg(dmgType, dmgAmnt);
             } break;

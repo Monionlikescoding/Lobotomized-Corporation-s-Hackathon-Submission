@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -38,14 +39,15 @@ public class Workbuttonscripts : MonoBehaviour
 	}
     
 	public void OnTriggerStay2D(Collider2D other) {
-        if(other.CompareTag("Player")) {
+        if(other.CompareTag("Player")&&transform.parent.Find("Abnormality").GetComponent<OneShin>().CurrentCD<=0) {
             if(EAction.action.IsPressed()) {
                 OnEClicked();
                 Debug.Log("Yep");
             }
             transform.Find("InteractButton").gameObject.SetActive(true);
         }
-    }
+        else if(transform.Find("InteractButton").GameObject().activeSelf==true) transform.Find("InteractButton").gameObject.SetActive(false);
+	}
 	public void OnTriggerExit2D(Collider2D collision) {
 		if(collision.CompareTag("Player")) {
             if(workObject.activeSelf==true) workObject.SetActive(false);
@@ -55,7 +57,7 @@ public class Workbuttonscripts : MonoBehaviour
 
 	private void OnEClicked()
     {   
-        if(abno.GetComponent<OneShin>().CurrentCD<0){
+        if(abno.GetComponent<IAbno>().CurrentCD<0){
             abnoIF = abno.GetComponent<IAbno>();
             workTime = abnoIF.WorkTime;
             workObject.SetActive(true);
