@@ -8,6 +8,9 @@ TagManager:
   - Abno
   - Employee
   - Room
+  - DoorL
+  - DoorR
+  - Elevator
   layers:
   - Default
   - TransparentFX

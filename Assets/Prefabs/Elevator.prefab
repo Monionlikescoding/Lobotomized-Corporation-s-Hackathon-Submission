@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 8329338790822035101}
   m_Layer: 0
   m_Name: Elevator
-  m_TagString: Untagged
+  m_TagString: Elevator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -931,6 +931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 2225395443479329696, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: roomid
       value: 5
@@ -1232,6 +1236,10 @@ PrefabInstance:
     - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: m_Name
       value: SmallDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: m_TagString
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 2225395443479329696, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: roomid
