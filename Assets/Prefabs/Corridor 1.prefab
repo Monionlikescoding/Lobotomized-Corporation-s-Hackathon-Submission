@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoor 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: m_TagString
+      value: DoorL
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2230167504472019717, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
     - {fileID: 2225395443479329696, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
@@ -600,6 +604,10 @@ PrefabInstance:
     - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: m_Name
       value: SmallDoor 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: m_TagString
+      value: DoorR
       objectReference: {fileID: 0}
     - target: {fileID: 2225395443479329696, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: roomid
