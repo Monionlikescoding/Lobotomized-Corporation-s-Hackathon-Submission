@@ -11,6 +11,7 @@ public class TrackPlayer : MonoBehaviour
     public GameManager gameObjectScript;
     private GameObject currRoom;
     private GameObject target;
+    private char dir;
     private float targetValue; // Basically, how valuable is the target, is it 0 : a door, 0.45 : person already chosen, 0.5 : a door leading to a player/employee, 1 : an employee, 1.5 : a close employee (within the hit boundary (always prioritizes player)), 2 : a player, 3 : a player inside the hit detection collider (not added yet)
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,16 +37,26 @@ public class TrackPlayer : MonoBehaviour
         doors = new ArrayList();
         target = null;
         currRoom = gameObjectScript.rooms[roomid];
-
-        foreach (Transform child in currRoom.transform)
-        {
-            if(child.gameObject.tag == "Door") {
-                roomIds.Add(child.gameObject.GetComponent<IDoor>().RoomID);
-                doors.Add(child.gameObject);
+        
+        if(dir=='n'){
+            foreach (Transform child in currRoom.transform)
+            {
+                if(child.gameObject.tag == "DoorL") {
+                    if(child.gameObject.GetComponent<Door>().exit.GetComponent<Door>().RoomID==child.GetComponent<Door>().RoomID){
+                        dir='l';
+                        break;
+                    }
+			    }
+                else if(child.gameObject.tag == "DoorR") {
+                    if(child.gameObject.GetComponent<Door>().exit.GetComponent<Door>().RoomID==child.GetComponent<Door>().RoomID){
+                        dir='r';
+                        break;
+				    }
+			    }
             }
         }
+        //ill finish this later or whatever
 
-       
         
         //Debug.Log(players.Length);
         if(players.Length > 0) {
