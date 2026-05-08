@@ -2,30 +2,30 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
-public class LamentMournDespair : MonoBehaviour, IAbno
+public class SodaMachine : MonoBehaviour, IAbno
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject player;
     public float[] playerStats;
-    public int dmgType = 2;
-    public int dmgAmnt = 2;
+    public int dmgType = 0;
+    public int dmgAmnt = 1;
     public bool canEscape = false;
     public bool hasAngerMeter = false;
     public int maxAngerCount = 0;
     public int angerCount = 0;
-    public int workType;
     public int threatLevel = 0;
     public float chanceToGetGift = 0.05f;
-    public float chanceToGetEnkH = 0.1f;
-    public float chanceToGetEnkM = 0.5f;
-    public float chanceToGetEnkS = 0.3f;
-    public float workTime = 1;
-    public int amountOfWorks = 12;
+    public float chanceToGetEnkH = 0.65f;
+    public float chanceToGetEnkM = 0.65f;
+    public float chanceToGetEnkS = 0.55f;
+    public float workTime = 0.8f;
+    public int workType;
+    public int amountOfWorks = 9;
     public int good=8;
     public int bad=4;
     public float egoGiftID;
     public int workResult;
-    public float cooldown=5f;
+    public float cooldown=10f;
     private float currentCD=-1f;
     public int id = 2;
     private GameObject cd;
@@ -117,7 +117,7 @@ public class LamentMournDespair : MonoBehaviour, IAbno
 	}
 
 	public void onBadWorkResult() {
-        player.GetComponent<Move>().mind = 0;
+        player.GetComponent<Move>().body -= 8;
     }
 
     public void onNormalWorkResult() {
@@ -125,7 +125,13 @@ public class LamentMournDespair : MonoBehaviour, IAbno
     }
 
     public void onGoodWorkResult() {
-        player.GetComponent<Move>().mind = player.GetComponent<Move>().mindMAX;
+        switch(workType) {
+            case 0 : player.GetComponent<Move>().body += 10; break;
+            case 1 : player.GetComponent<Move>().mind += 10; break;
+            case 2 : player.GetComponent<Move>().soul += 3; break;
+            case 3 : player.GetComponent<Move>().mind += 5; player.GetComponent<Move>().body += 8; break;
+        }
+        
     }
 
     public void onEmployeeDeath() {

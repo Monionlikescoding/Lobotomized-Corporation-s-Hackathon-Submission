@@ -22,6 +22,7 @@ public class OneShin : MonoBehaviour, IAbno
     public int amountOfWorks = 10;
     public int good=7;
     public int bad=3;
+    public int workType;
     public float egoGiftID;
     public int workResult;
     public float cooldown=5f;
@@ -193,6 +194,12 @@ public class OneShin : MonoBehaviour, IAbno
     { 
         get => chanceToGetGift; 
         set => chanceToGetGift = value;
+    }
+
+    public int WorkType 
+    { 
+        get => workType;
+        set => workType = value;
     }
 
     public float WorkTime 

@@ -74,8 +74,16 @@ public class Workbuttonscripts : MonoBehaviour
         pos.x += 0.75f;
         player.transform.position = pos;
         player.GetComponent<Move>().RoomId = roomID;
-        GameObject AbNo = FindChildWithTag(cell, "Abno").gameObject;
-        wok.Work(AbNo, workTime, AbNo.GetComponent<IAbno>().AmountOfWorks, gameObject, workType);
+        abno = FindChildWithTag(cell, "Abno").gameObject;
+        int a = 0;
+        switch(workType) {
+            case "Body" : a = 0; break;
+            case "Mind" : a = 1; break;
+            case "Soul" : a = 2; break;
+            case "Special" : a = 3; break;
+        }
+        abnoIF.WorkType = a;
+        wok.Work(abno, workTime, abno.GetComponent<IAbno>().AmountOfWorks, gameObject, workType);
         Debug.Log("Something happened");
     }
 
