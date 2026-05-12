@@ -2,27 +2,27 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
-public class LamentMournDespair : MonoBehaviour, IAbno
+public class DeathsBell : MonoBehaviour, IAbno
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject player;
     public float[] playerStats;
-    public int dmgType = 2;
+    public int dmgType = 0;
     public int dmgAmnt = 2;
     public bool canEscape = false;
-    public bool hasAngerMeter = false;
-    public int maxAngerCount = 0;
-    public int angerCount = 0;
+    public bool hasAngerMeter = true;
+    public int maxAngerCount = 2;
+    public int angerCount = 2;
     public int workType;
     public int threatLevel = 0;
     public float chanceToGetGift = 0.05f;
-    public float chanceToGetEnkH = 0.1f;
-    public float chanceToGetEnkM = 0.5f;
+    public float chanceToGetEnkH = 1f;
+    public float chanceToGetEnkM = 0.2f;
     public float chanceToGetEnkS = 0.3f;
     public float workTime = 1;
-    public int amountOfWorks = 12;
-    public int good=8;
-    public int bad=4;
+    public int amountOfWorks = 13;
+    public int good=13;
+    public int bad=12;
     public float egoGiftID;
     public int workResult;
     public float cooldown=5f;
@@ -118,14 +118,17 @@ public class LamentMournDespair : MonoBehaviour, IAbno
 
 	public void onBadWorkResult() {
         player.GetComponent<Move>().mind = 0;
+        player.GetComponent<Move>().body = 0;
+        angerCount--;
     }
 
     public void onNormalWorkResult() {
-
+        
     }
 
     public void onGoodWorkResult() {
-        player.GetComponent<Move>().mind = player.GetComponent<Move>().mindMAX;
+        player.GetComponent<Move>().body = 1;
+        angerCount++;
     }
 
     public void onEmployeeDeath() {
