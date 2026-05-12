@@ -56,7 +56,7 @@ public class Door : MonoBehaviour, IDoor
     void OnTriggerEnter2D(Collider2D other)
     {    
         // Use tags to identify what entered the zone
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")||other.CompareTag("AbnoEscaped"))
         {
             opening=true;
             exit.GetComponent<Door>().opening=true;
@@ -64,19 +64,28 @@ public class Door : MonoBehaviour, IDoor
             {
                 Transform exitPoint = exit.transform.Find("Exit");
                 other.gameObject.transform.position = exitPoint.position;
-                other.GetComponent<Move>().RoomId = exit.GetComponent<Door>().roomid;
+                foreach(GameObject ab in GameObject.FindGameObjectsWithTag("AbnoEscaped")){
+                    ab.GetComponent<TrackPlayer>().resetDir();
+                }
+                if(other.CompareTag("Player")){
+                    other.GetComponent<Move>().RoomId = exit.GetComponent<Door>().roomid;
+                }
+                else{
+                    other.GetComponent<TrackPlayer>().Roomid = exit.GetComponent<Door>().roomid;
+                }
+                
             }
         }
     }
 	void OnTriggerExit2D(Collider2D other) {
-		if (other.CompareTag("Player"))
+		if (other.CompareTag("Player")||other.CompareTag("AbnoEscaped"))
         {
             opening=false;
             exit.GetComponent<Door>().opening=false;
         }
 	}
     void OnTriggerStay2D(Collider2D other){
-        if (other.CompareTag("Player")&&opening==false)
+        if ((other.CompareTag("Player")||other.CompareTag("AbnoEscaped"))&&opening==false)
         {
             opening=true;
             exit.GetComponent<Door>().opening=true;
