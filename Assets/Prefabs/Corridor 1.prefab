@@ -200,7 +200,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00047791004, y: 0}
+  m_Offset: {x: -0.00047779083, y: -0.041242883}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -210,7 +210,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.745925, y: 0.3}
+  m_Size: {x: 6.745925, y: 0.38248578}
   m_EdgeRadius: 0
 --- !u!1 &3601249914666125083
 GameObject:
@@ -328,9 +328,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3893447486591615836}
   - component: {fileID: 4704435158188554801}
+  - component: {fileID: 7805796644344194854}
   m_Layer: 0
   m_Name: Corridor 1
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,6 +415,52 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &7805796644344194854
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4320632923451875182}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.75, y: 3}
+    newSize: {x: 6.75, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6.75, y: 3}
+  m_EdgeRadius: 0
 --- !u!1001 &733032767720995480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -465,6 +512,10 @@ PrefabInstance:
     - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: m_Name
       value: SmallDoor 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: m_TagString
+      value: DoorL
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2230167504472019717, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
@@ -553,6 +604,10 @@ PrefabInstance:
     - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: m_Name
       value: SmallDoor 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: m_TagString
+      value: DoorR
       objectReference: {fileID: 0}
     - target: {fileID: 2225395443479329696, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: roomid

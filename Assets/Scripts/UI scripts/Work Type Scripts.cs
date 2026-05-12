@@ -20,6 +20,7 @@ public class WorkTypeScripts : MonoBehaviour
     public int bodyPercent;
     public int soulPercent;
     public int specialPercent;
+    public CanvasGroup uiGroup;
 
 
     private void Start()
@@ -33,7 +34,8 @@ public class WorkTypeScripts : MonoBehaviour
         soul.onClick.AddListener(OnSoulButtonClick);
 		special=transform.Find("SpecialButton").GetComponent<Button>();
         special.onClick.AddListener(OnSpecialButtonClick);
-        gameObject.SetActive(false);
+        uiGroup = GetComponentInParent<CanvasGroup>();
+        HideUI();
 	}
 	private void Update() {
         if(buttonScript != null) {
@@ -70,5 +72,19 @@ public class WorkTypeScripts : MonoBehaviour
         Debug.Log("[On Special Work] : Murder");
         buttonScript.start("Special");
 	}
+
+    public void ShowUI()
+    {
+        uiGroup.alpha = 1f;
+        uiGroup.interactable = true;
+        uiGroup.blocksRaycasts = true;
+    }
+
+    public void HideUI()
+    {
+        uiGroup.alpha = 0f;
+        uiGroup.interactable = false;
+        uiGroup.blocksRaycasts = false;
+    }
     
 }

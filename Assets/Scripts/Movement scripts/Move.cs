@@ -66,6 +66,16 @@ public class Move : MonoBehaviour
         posBar2.x -= 0.1548f;
         posBar2.y += 0.744f;
         progressBarM.transform.position = posBar2;
+
+        if(soul > soulMAX) {
+            soul = soulMAX;
+        }
+        if(mind > mindMAX) {
+            mind = mindMAX;
+        }
+        if(body > bodyMAX) {
+            body = bodyMAX;
+        }
         
 	}
 	// Fixed update is constant time, (this is needed for applying forces & velocity management as many devices run on different framerates)

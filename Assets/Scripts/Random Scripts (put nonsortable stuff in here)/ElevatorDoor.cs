@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
 
 public class ElevatorDoor : MonoBehaviour, IDoor
 {
@@ -56,6 +55,10 @@ public class ElevatorDoor : MonoBehaviour, IDoor
         pos.y -= 0.5f;
         pos.x -= 0.5f;
         player.transform.position = pos;
+    }
+
+    public int getOtherDoorID() {
+        return targetDoor.GetComponent<ElevatorDoor>().roomID;
     }
 
     public int RoomID 

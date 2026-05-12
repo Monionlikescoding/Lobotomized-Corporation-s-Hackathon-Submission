@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5261731324825835159}
   - component: {fileID: 2616346032636494495}
+  - component: {fileID: 4062608565548967123}
   m_Layer: 0
   m_Name: elevator room-2.png_0
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +97,52 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &4062608565548967123
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731608674565246080}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.5625, y: 3}
+    newSize: {x: 3.5625, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.5625, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &1922579028965693254
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,9 +309,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3774418108251130028}
   - component: {fileID: 6808307502917321413}
+  - component: {fileID: 3143615718368969612}
   m_Layer: 0
   m_Name: elevator room-1.png_0
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,6 +396,52 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &3143615718368969612
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336055380092770625}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.5625, y: 3}
+    newSize: {x: 3.5625, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.5625, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &3711618721446294625
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +453,7 @@ GameObject:
   - component: {fileID: 8329338790822035101}
   m_Layer: 0
   m_Name: Elevator
-  m_TagString: Untagged
+  m_TagString: Elevator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -837,6 +931,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225395443479329696, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: roomid
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -899,17 +1001,68 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elevator Door
       objectReference: {fileID: 0}
+    - target: {fileID: 7979753127945770651, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824784674264733856, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2653875231069216124, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7979753127945770651, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8714181266819262834}
   m_SourcePrefab: {fileID: 100100000, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
 --- !u!4 &1777527661491915954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4584465506063074720, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
   m_PrefabInstance: {fileID: 2824954244803840274}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5298915815117479817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7979753127945770651, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+  m_PrefabInstance: {fileID: 2824954244803840274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8714181266819262834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5298915815117479817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203b84a8c266342149df72edb474cac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElevatorDoor
+  EAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: E
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 2a0430af-c714-459b-ac26-7192661c9911
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 47d6a15b-aad3-4d2a-ad38-d6e1837f9f9c
+        m_Path: <Keyboard>/e
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: E
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  cd: 0
+  targetDoor: {fileID: 4916423673160175104}
+  roomID: 6
 --- !u!1001 &3064526342047242395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -918,6 +1071,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5261731324825835159}
     m_Modifications:
+    - target: {fileID: 536863911377502702, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4584465506063074720, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -958,21 +1115,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5729105735602235871, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+      propertyPath: corridorRoomId
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7979753127945770651, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
       propertyPath: m_Name
       value: Elevator Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979753127945770651, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824784674264733856, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2653875231069216124, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7979753127945770651, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8215171605340657910}
   m_SourcePrefab: {fileID: 100100000, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
 --- !u!4 &1520010427254594875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4584465506063074720, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
   m_PrefabInstance: {fileID: 3064526342047242395}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4916423673160175104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7979753127945770651, guid: e3a8e7f62216f43d3bd8e55ae8d9bde6, type: 3}
+  m_PrefabInstance: {fileID: 3064526342047242395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8215171605340657910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916423673160175104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203b84a8c266342149df72edb474cac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElevatorDoor
+  EAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: E
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 083b9892-6074-42ed-9639-4665a934a50e
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: ffaa0bc4-540d-4777-83aa-13b5b0330d11
+        m_Path: <Keyboard>/e
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: E
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  cd: 0
+  targetDoor: {fileID: 5298915815117479817}
+  roomID: 5
 --- !u!1001 &6186345657562490189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1024,6 +1236,14 @@ PrefabInstance:
     - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
       propertyPath: m_Name
       value: SmallDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201031309729704021, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225395443479329696, guid: e0a9aca485a7d45c4aa2f781da277e8a, type: 3}
+      propertyPath: roomid
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

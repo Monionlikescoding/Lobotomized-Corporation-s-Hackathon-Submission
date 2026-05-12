@@ -6,17 +6,23 @@ TagManager:
   tags:
   - Door
   - Abno
+  - Employee
+  - Room
+  - DoorL
+  - DoorR
+  - Elevator
+  - AbnoEscaped
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - tf is this
   - Water
   - UI
-  - Front
-  - 
-  - 
-  - 
+  - Rooms
+  - Players
+  - Abnos
+  - Above all
   - 
   - 
   - 
