@@ -3,8 +3,8 @@ using System.Collections;
 
 public class TrackPlayer : MonoBehaviour
 {
-    public int roomid;
-    public ArrayList roomIds;
+    public int Roomid;
+    public GameObject[] roomIds;
     public GameObject[] players;
     public GameObject[] employees;
     public ArrayList doors;
@@ -23,14 +23,6 @@ public class TrackPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-
-    // Ok, so how i want this to work is that this enemy will check the room its in, and the adjacent rooms
-    // This is cuz you can get the adjacent rooms from the room ids of the doors in the current room, but it will take a lot of
-    // computing power to check all rooms, so adjacent room detection seems like the best option rn
-    // Iterate through all child objects of the room the enemy is currently in, check if each object has the IDoor component and get its roomid ("GetComponent<IDoor>().RoomID)'
-    // Now with those ids, iterate through all player characters and check whether their room ids are the same to any in the arraylist
-    // If the roomid of the enemy and the player are the same, just make the enemy move towards the player
-    // Otherwise, make it go through the doors by editing the door scripts to allow the enemy to also go through doors, maybe use a function here to decide whether the enemy wants to move through the doors
     void Update()
     {   
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -38,7 +30,7 @@ public class TrackPlayer : MonoBehaviour
         roomIds = new ArrayList(); // excludes current room id
         doors = new ArrayList();
         target = null;
-        currRoom = gameObjectScript.rooms[roomid];
+        currRoom = roomIds[Roomid];
         
             foreach (Transform child in currRoom.transform)
             {
@@ -63,7 +55,7 @@ public class TrackPlayer : MonoBehaviour
         //Debug.Log(players.Length);
         
         for(int i = 0; i < players.Length; i++) {
-            if(players[i].GetComponent<Move>().RoomId == roomid) {
+            if(players[i].GetComponent<Move>().RoomId == Roomid) {
                 target=players[i];
             }
         }
@@ -73,5 +65,7 @@ public class TrackPlayer : MonoBehaviour
             transform.Translate(direction*Time.deltaTime*0.5f);
         }
     }
-
+    public void resetDir(){
+        dir='n';
+    }
 }
