@@ -81,4 +81,10 @@ public class ElevatorDoor : MonoBehaviour, IDoor
         get => roomID;
         set => roomID = value;
     }
+
+    public GameObject Exit 
+    { 
+        get => targetDoor;
+        set => targetDoor = value;
+    }
 }

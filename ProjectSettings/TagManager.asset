@@ -11,6 +11,7 @@ TagManager:
   - DoorL
   - DoorR
   - Elevator
+  - EscapedAbno
   layers:
   - Default
   - TransparentFX
