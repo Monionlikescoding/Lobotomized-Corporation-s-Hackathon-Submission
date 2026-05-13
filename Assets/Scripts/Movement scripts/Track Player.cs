@@ -16,7 +16,6 @@ public class TrackPlayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        roomIds = new ArrayList();
         gameObjectScript = GameObject.Find("Game Manager").GetComponent<GameManager>();
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject[] employees = GameObject.FindGameObjectsWithTag("Employee");
@@ -27,10 +26,9 @@ public class TrackPlayer : MonoBehaviour
     {   
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject[] employees = GameObject.FindGameObjectsWithTag("Employee");
-        roomIds = new ArrayList(); // excludes current room id
         doors = new ArrayList();
         target = null;
-        currRoom = roomIds[Roomid];
+        currRoom = gameObjectScript.rooms[Roomid];
         
             foreach (Transform child in currRoom.transform)
             {
@@ -66,6 +64,6 @@ public class TrackPlayer : MonoBehaviour
         }
     }
     public void resetDir(){
-        dir='n';
+        //dir='n';
     }
 }
