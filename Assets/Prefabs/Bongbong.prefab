@@ -1,5 +1,96 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &260963913119863781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4925481168826114119}
+  - component: {fileID: 3255634747807617910}
+  m_Layer: 0
+  m_Name: clipboard_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4925481168826114119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260963913119863781}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.258, y: -0.08, z: 0}
+  m_LocalScale: {x: 0.5, y: -0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8395949622839889442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &3255634747807617910
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260963913119863781}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: -1823497747
+  m_SortingLayer: 3
+  m_SortingOrder: 2
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -7627237033547488594, guid: 4b17c1323718e8e41a79015bf6934312, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.75, y: 0.75}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &990809123308837906
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3080307583425559255}
   - component: {fileID: 4626650326506952557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bongbong head-1.png (1)_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6313532774251513541}
   - component: {fileID: 355151444429999151}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shadow_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6413183123165108713}
   - component: {fileID: 77015714606445359}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bongbong arm_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,6 +364,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2587053389067877548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2949984801689315876}
+  m_Layer: 7
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2949984801689315876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587053389067877548}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8395949622839889442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3031317786248000480
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2571909157145257444}
   - component: {fileID: 6610262851856550446}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bongbong leg_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6010874675550733650}
   - component: {fileID: 5553708894636050754}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bongbong leg_0_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6722797350021712155}
   - component: {fileID: 8653129915581184912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bongbong arm_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +683,7 @@ GameObject:
   - component: {fileID: 843241889000327122}
   - component: {fileID: 7255306983855191486}
   - component: {fileID: -5477810920486243844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bongbong
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -588,6 +710,9 @@ Transform:
   - {fileID: 2571909157145257444}
   - {fileID: 6010874675550733650}
   - {fileID: 6413183123165108713}
+  - {fileID: 4925481168826114119}
+  - {fileID: 4787621156656808264}
+  - {fileID: 2949984801689315876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &3044515473714328086
@@ -600,7 +725,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1823497747
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!114 &5711851190140552631
@@ -621,12 +746,12 @@ MonoBehaviour:
   playerRb: {fileID: 0}
   workScript: {fileID: 0}
   body: 15
-  bodyMAX: 15
+  bodyMAX: 20
   mind: 15
-  mindMAX: 15
+  mindMAX: 20
   soul: 15
-  soulMAX: 15
-  Favors: 01
+  soulMAX: 20
+  Favors: 0100
   enkephalin: 00000000
   currentlyWorking: 0
   progressBarH: {fileID: 0}
@@ -734,6 +859,97 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::work
   isWorking: 0
   playerScript: {fileID: 0}
+--- !u!1 &5129010897678023430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4787621156656808264}
+  - component: {fileID: 5902224912688121849}
+  m_Layer: 0
+  m_Name: pencil_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4787621156656808264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129010897678023430}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.161, y: 0.015, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8395949622839889442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &5902224912688121849
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129010897678023430}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: -1823497747
+  m_SortingLayer: 3
+  m_SortingOrder: 2
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -6418337541015408120, guid: b2cbdf11c18304cd9b531c1e331fbfc6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.04310345, y: 0.1724138}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &6994428933488777894
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6570979921975944865}
   - component: {fileID: 4881979616066462060}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bongbong body-2.png_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

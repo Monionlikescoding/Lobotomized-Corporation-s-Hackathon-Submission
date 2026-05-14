@@ -28,7 +28,6 @@ public class ElevatorDoor : MonoBehaviour, IDoor
     public void OnTriggerStay2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
             if (EAction.action.ReadValue<float>() > 0 && targetDoor.GetComponent<ElevatorDoor>().cd < 0 && cd < 0) {
-                Debug.Log(player.GetComponent<Move>());
                 OnEClicked();
             }
 
