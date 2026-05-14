@@ -27,11 +27,6 @@ public class EmployeeMove : MonoBehaviour
 
     public bool wantToGoDownElevator = true;
 
-    public Slider progressBarH;
-    public float targetProgressH;
-    public Slider progressBarM;
-    public float targetProgressM;
-    public float fillSpeed = 3f;
 
     void Start()
     {
@@ -52,18 +47,6 @@ public class EmployeeMove : MonoBehaviour
 	private void Update() {
 
         currRoom = gameObjectScript.rooms[RoomId];
-
-        UpdateProgressH((float) (body / bodyMAX));
-        UpdateProgressM((float) (mind / mindMAX));
-
-        Vector2 posBar1 = gameObject.transform.position;
-        posBar1.y += 0.9f;
-        progressBarH.transform.position = posBar1;
-
-        Vector2 posBar2 = gameObject.transform.position;
-        posBar2.x -= 0.1548f;
-        posBar2.y += 0.744f;
-        progressBarM.transform.position = posBar2;
 
         if(soul > soulMAX) {
             soul = soulMAX;
@@ -105,15 +88,5 @@ public class EmployeeMove : MonoBehaviour
 
     }
 
-    public void UpdateProgressH(float value)
-    {
-        // Ensure value is between 0 and 1 (or your min/max)
-        progressBarH.value = value;
-    }
-
-    public void UpdateProgressM(float value)
-    {
-        progressBarM.value = value;
-    }
 
 }

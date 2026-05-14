@@ -11,6 +11,7 @@ public class Move : MonoBehaviour
     public float accel;
     public int RoomId;
     InputAction moveAction;
+    public InputActionProperty click;
     public Rigidbody2D playerRb;
     SpriteRenderer spriteRenderer;
     Animator anim;
@@ -35,6 +36,8 @@ public class Move : MonoBehaviour
     public Slider progressBarM;
     public float targetProgressM;
     public float fillSpeed = 3f;
+    public float atkCDMAX = 0.6f;
+    public float atkCD = 0f;
 
     void Start()
     {
@@ -43,6 +46,7 @@ public class Move : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         workScript = GetComponent<work>();
+        click.action.Enable();
 
         // Sets speed to default value
         if(speed == 0) {
@@ -76,6 +80,11 @@ public class Move : MonoBehaviour
         if(body > bodyMAX) {
             body = bodyMAX;
         }
+
+        if (click.action.ReadValue<float>() > 0) {
+            OnClik();
+        }
+        atkCD += Time.deltaTime;
         
 	}
 	// Fixed update is constant time, (this is needed for applying forces & velocity management as many devices run on different framerates)
@@ -108,8 +117,11 @@ public class Move : MonoBehaviour
         vel.x = Mathf.Clamp(vel.x, -speed, speed); // clamping x-velocity to speed
         playerRb.linearVelocity = vel;
         anim.SetBool("working", false);
+        Transform atkHB = transform.Find("Attack HitBox");
         if(moveValue.x != 0) {
             anim.SetBool("walking", true);
+            
+
         }
         else {
             anim.SetBool("walking", false);
@@ -117,10 +129,11 @@ public class Move : MonoBehaviour
 
         if(moveValue.x < 0) {
             transform.localScale = new Vector2(-1, 1);
-
+            atkHB.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
         }
         else if(moveValue.x > 0) {
             transform.localScale = new Vector2(1, 1);
+            atkHB.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
 
         }
@@ -142,5 +155,19 @@ public class Move : MonoBehaviour
     {
         progressBarM.value = value;
     }
+
+    public void OnClik() {
+        if(atkCD >= atkCDMAX && !currentlyWorking) {
+            Debug.Log("Mouse Clicked!");
+            
+            // Optional: Get the screen position of the mouse at the moment of click
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
+            Debug.Log("Click Position: " + mousePosition);
+            anim.SetTrigger("swipe");
+            atkCD = 0f;
+        }
+    }
+
+            
 
 }
