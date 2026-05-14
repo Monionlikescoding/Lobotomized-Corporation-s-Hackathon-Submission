@@ -143,6 +143,7 @@ public class work : MonoBehaviour
             tpPos.y -= 0.5f;
             gameObject.transform.position = tpPos;
             playerScript.RoomId = doorToTpTo.GetComponent<CorridorDoor>().corridorRoomId;
+            playerScript.currentlyWorking=false;
 
             
 

@@ -1,7 +1,10 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UI;
 
 public class Move : MonoBehaviour
@@ -85,56 +88,59 @@ public class Move : MonoBehaviour
             OnClik();
         }
         atkCD += Time.deltaTime;
-        
 	}
 	// Fixed update is constant time, (this is needed for applying forces & velocity management as many devices run on different framerates)
 	void FixedUpdate()
     {
         Vector2 moveValue = moveAction.ReadValue<Vector2>(); // no need to divide it by accel
         moveValue.y=0; // you can only move in the x-direction
+        
         if(!currentlyWorking) {
             playerRb.AddForce(moveValue * speed * 500 * Time.deltaTime);
         
 
-        Vector2 vel = playerRb.linearVelocity;
+            Vector2 vel = playerRb.linearVelocity;
 
-        // Currently trying to fix accel so it uses linear damping instead of hardcoding it
-        // Test the code, uncomment this out if it doesn't work. Also, linear dampening should be at 10 rn, and speed at 6
-        /*
-        if(moveValue.y==0){ //if the player doesn't hold a direction key, automatic deceleration happens
-            if(vel.x>0){
-                vel.x-=speed/400;
+            // Currently trying to fix accel so it uses linear damping instead of hardcoding it
+            // Test the code, uncomment this out if it doesn't work. Also, linear dampening should be at 10 rn, and speed at 6
+            /*
+            if(moveValue.y==0){ //if the player doesn't hold a direction key, automatic deceleration happens
+                if(vel.x>0){
+                    vel.x-=speed/400;
+                }
+                else if(vel.x<0){
+                    vel.x+=speed/400;
+                }
+                if(Math.Abs(vel.x)<speed/400){
+                    vel.x=0;
+                }
             }
-            else if(vel.x<0){
-                vel.x+=speed/400;
-            }
-            if(Math.Abs(vel.x)<speed/400){
-                vel.x=0;
-            }
-        }
-        */
+            */
 
-        vel.x = Mathf.Clamp(vel.x, -speed, speed); // clamping x-velocity to speed
-        playerRb.linearVelocity = vel;
-        anim.SetBool("working", false);
-        Transform atkHB = transform.Find("Attack HitBox");
-        if(moveValue.x != 0) {
-            anim.SetBool("walking", true);
+            vel.x = Mathf.Clamp(vel.x, -speed, speed); // clamping x-velocity to speed
+            if(anim.GetCurrentAnimatorClipInfo(0)[0].clip.name=="swipe"){
+                vel.x = Mathf.Clamp(vel.x, -speed/33, speed/33);
+            }
+            playerRb.linearVelocity = vel;
+            anim.SetBool("working", false);
+            Transform atkHB = transform.Find("Attack HitBox");
+            if(moveValue.x != 0) {
+                anim.SetBool("walking", true);
             
 
-        }
-        else {
-            anim.SetBool("walking", false);
-        }
+            }
+            else {
+                anim.SetBool("walking", false);
+            }
 
-        if(moveValue.x < 0) {
-            transform.localScale = new Vector2(-1, 1);
-            atkHB.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-        }
-        else if(moveValue.x > 0) {
-            transform.localScale = new Vector2(1, 1);
-            atkHB.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        }
+            if(moveValue.x < 0) {
+                transform.localScale = new Vector2(-1, 1);
+                atkHB.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            }
+            else if(moveValue.x > 0) {
+                transform.localScale = new Vector2(1, 1);
+                atkHB.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
 
         }
         else {
@@ -158,13 +164,14 @@ public class Move : MonoBehaviour
 
     public void OnClik() {
         if(atkCD >= atkCDMAX && !currentlyWorking) {
-            Debug.Log("Mouse Clicked!");
-            
-            // Optional: Get the screen position of the mouse at the moment of click
-            Vector2 mousePosition = Mouse.current.position.ReadValue();
-            Debug.Log("Click Position: " + mousePosition);
-            anim.SetTrigger("swipe");
-            atkCD = 0f;
+            GameObject.Find("Canvas").transform.Find("WorkUI").GetComponent<WorkTypeScripts>();
+			// Optional: Get the screen position of the mouse at the moment of click
+			Vector2 mousePosition = Mouse.current.position.ReadValue();
+            if (!EventSystem.current.IsPointerOverGameObject()){
+                anim.SetTrigger("swipe");
+                Debug.Log("attacked");
+            }
+			atkCD = 0f;
         }
     }
 
