@@ -515,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6575638645491775498, guid: a80667bc36d374f988f5ea8ce444fcb4, type: 3}
       propertyPath: m_TagString
-      value: DoorR
+      value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -585,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6575638645491775498, guid: a80667bc36d374f988f5ea8ce444fcb4, type: 3}
       propertyPath: m_TagString
-      value: DoorL
+      value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

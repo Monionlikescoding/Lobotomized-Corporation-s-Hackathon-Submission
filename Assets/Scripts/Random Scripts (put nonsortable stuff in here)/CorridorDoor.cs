@@ -40,7 +40,7 @@ public class CorridorDoor : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {    
         // Use tags to identify what entered the zone
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Employee"))
         {
             opening=true;
             if (other.IsTouching(AnimationRunner.GetComponent<Collider2D>()))
@@ -50,13 +50,13 @@ public class CorridorDoor : MonoBehaviour
         }
     }
 	void OnTriggerExit2D(Collider2D other) {
-		if (other.CompareTag("Player"))
+		if (other.CompareTag("Player") || other.CompareTag("Employee"))
         {
             opening=false;
         }
 	}
     void OnTriggerStay2D(Collider2D other){
-        if (other.CompareTag("Player") && opening==false)
+        if ((other.CompareTag("Player") || other.CompareTag("Employee")) && opening==false)
         {
             opening=true;
         }

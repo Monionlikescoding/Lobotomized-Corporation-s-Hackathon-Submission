@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private Move scr;
 
     public Slider healingBar1;
+    public Slider healingBar2;
     public float timeMax = 5f;
     public float time = 1f;
     public float fillSpeed = 3f;
@@ -34,9 +35,10 @@ public class GameManager : MonoBehaviour
         }
 
         healingBar1.value = time / timeMax;
-
+        healingBar2.value = time / timeMax;
+        GameObject[] employees = GameObject.FindGameObjectsWithTag("Employee");
         if(time >= timeMax) {
-            if(player.GetComponent<Move>().RoomId == 0) {
+            if(player.GetComponent<Move>().RoomId == 0 || player.GetComponent<Move>().RoomId == 22) {
                 if(player.GetComponent<Move>().body <= (player.GetComponent<Move>().bodyMAX - healingAmnt)) {
                     player.GetComponent<Move>().body += healingAmnt;
                 }
@@ -51,6 +53,27 @@ public class GameManager : MonoBehaviour
                     player.GetComponent<Move>().mind = player.GetComponent<Move>().mindMAX;
                 }
             }
+
+            foreach (GameObject employee in employees) {
+                if(employee.GetComponent<EmployeeMove>().RoomId == 0 || employee.GetComponent<EmployeeMove>().RoomId == 22) {
+                    
+                    if(employee.GetComponent<EmployeeMove>().body <= (employee.GetComponent<EmployeeMove>().bodyMAX - healingAmnt)) {
+                        employee.GetComponent<EmployeeMove>().body += healingAmnt;
+                    }
+                    else {
+                        employee.GetComponent<EmployeeMove>().body = employee.GetComponent<EmployeeMove>().bodyMAX;
+                    }
+
+                    if(employee.GetComponent<EmployeeMove>().mind <= (employee.GetComponent<EmployeeMove>().mindMAX - healingAmnt) && employee.GetComponent<EmployeeMove>().mind != 0) {
+                        employee.GetComponent<EmployeeMove>().mind += healingAmnt;
+                    }
+                    else if(employee.GetComponent<EmployeeMove>().mind != 0){
+                        employee.GetComponent<EmployeeMove>().mind = employee.GetComponent<EmployeeMove>().mindMAX;
+                    
+                    }
+                }
+            }
+            
             time = 0;
         }
 
