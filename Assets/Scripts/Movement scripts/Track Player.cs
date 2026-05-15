@@ -42,6 +42,15 @@ public class TrackPlayer : MonoBehaviour
                             break;
                         }
                     }
+
+                    foreach (GameObject P in employees) {
+                        if(child.gameObject.GetComponent<IDoor>().Exit.GetComponent<IDoor>().RoomID == P.GetComponent<EmployeeMove>().RoomId){
+                            //dir='l';
+                            found = true;
+                            target = child.gameObject;
+                            break;
+                        }
+                    }
 			    }
                 if(found) {
                     break;
@@ -55,8 +64,18 @@ public class TrackPlayer : MonoBehaviour
         for(int i = 0; i < players.Length; i++) {
             if(players[i].GetComponent<Move>().RoomId == Roomid) {
                 target=players[i];
+                break;
             }
         }
+        if(target == null) {
+            for(int i = 0; i < employees.Length; i++) {
+                if(employees[i].GetComponent<EmployeeMove>().RoomId == Roomid) {
+                    target=employees[i];
+                    break;
+                }
+            }
+        }
+
         if(target != null) {
             Vector2 direction = (target.transform.position - gameObject.transform.position).normalized;
             direction.y = 0;

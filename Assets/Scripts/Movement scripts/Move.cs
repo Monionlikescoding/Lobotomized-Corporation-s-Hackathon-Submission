@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UI;
 
-public class Move : MonoBehaviour
+public class Move : MonoBehaviour, IDmgable
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float speed; // Speed is multiplied by 100
@@ -82,6 +82,10 @@ public class Move : MonoBehaviour
         }
         if(body > bodyMAX) {
             body = bodyMAX;
+        }
+
+        if(body <= 0) {
+            Die();
         }
 
         if (click.action.ReadValue<float>() > 0) {
@@ -175,6 +179,30 @@ public class Move : MonoBehaviour
         }
     }
 
-            
+    public float Health {get => body; set=> body = value;}
+    public float MaxHP {get => bodyMAX; set=> bodyMAX = value;}
+    public float Sp {get => mind; set=> mind = value;}
+    public float MaxSp {get => mindMAX; set=> mindMAX = value;}
+    public float Soul {get => soul; set=> soul = value;}
+    public float MaxSoul {get => soulMAX; set=> soulMAX = value;}
+
+    public void AdjustSp(float a){
+        mind += a;
+    }
+    public void AdjustHp(float a) {
+        body += a;
+    }
+    public void AdjustSoul(float a) {
+        soul += a;
+    }
+    public void Die() {
+        mind = mindMAX;
+        body = bodyMAX;
+        soul -= 10;
+        if(soul >= 0) {
+            RoomId = 0;
+            transform.position = new Vector2 (0, -1.8f);
+        }
+    }
 
 }

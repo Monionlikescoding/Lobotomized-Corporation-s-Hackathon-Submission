@@ -63,7 +63,7 @@ public class EmployeeMove : MonoBehaviour
 	void FixedUpdate()
     {
         Vector2 moveValue = new Vector2(1,0);
-        playerRb.AddForce(moveValue * speed * 500 * Time.deltaTime);
+        //playerRb.AddForce(moveValue * speed * 500 * Time.deltaTime);
         Vector2 vel = playerRb.linearVelocity;
 
 

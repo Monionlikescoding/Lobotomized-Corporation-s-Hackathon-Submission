@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class IDmgable : MonoBehaviour
+public interface IDmgable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    float Health {get; set;}
+    float MaxHP {get; set;}
+    float Sp {get; set;}
+    float MaxSp {get; set;}
+    float Soul {get; set;}
+    float MaxSoul {get; set;}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void AdjustSp(float a);
+    public void AdjustHp(float a);
+    public void AdjustSoul(float a);
+    public void Die();
 }
