@@ -37,7 +37,7 @@ public class ElevatorDoor : MonoBehaviour, IDoor
         }
 
         if (collision.CompareTag("Employee")) {
-            if (collision.gameObject.GetComponent<EmployeeMove>().wantToGoDownElevator && targetDoor.GetComponent<ElevatorDoor>().cd < 0 && cd < 0) {
+            if (targetDoor.GetComponent<ElevatorDoor>().cd < 0 && cd < 0) {
                 MoveEmployee(collision.gameObject);
             }
         }
